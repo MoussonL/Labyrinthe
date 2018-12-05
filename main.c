@@ -2,26 +2,29 @@
 
 int main()
 {
-	int val = 5;
-	int decision=5;
+	int val = 0;
+	int decision=0;
 	char* fic_save;
-	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 \n");
+	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3\n");
 	scanf("%d",&val);
 	Maze m;
 	switch(val)
 	{
 		case 1:	//cas fichier
-				printf("donnez le nom de votre fichier, sinon tapez 'non' et ce sera un fichier par défaut\n");
+			     
+			 
+				printf("donnez le nom de votre fichier, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = ENTREE;
 				char* s = "non";
-				scanf("%s",fic);
+				printf("hahahah");
+				scanf("%s", fic);/////c'est là que ca marche pas
 				if (fic==s)
 				{
-					Maze m = lectFic(ENTREE);
+				     m = lectFic(fic);
 				}
 				else
 				{
-					Maze m = lectFic(fic);
+					m = lectFic(fic);
 				}
 				Maze m_fic = m;
 				if(m_fic.Lin)//si erreur dans le fichier maze.nblig = 0 sinon !=0 et on entre dans le if
@@ -43,7 +46,9 @@ int main()
 				}
 				free(m_fic.Matrix);
 		break;
-		case 2:	printf("le labyrinthe va etre généré aléatoirement\n");
+		case 2:	//labyrinthe totalement aléatoire
+		
+		        printf("le labyrinthe va etre généré aléatoirement\n");
 				/////Maze m_alea = //lab aléa donné par Fatma
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 0 sinon\n");
 				scanf("%d",&decision);
@@ -61,7 +66,8 @@ int main()
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
 				break;
-		
+		case 3: //labyrinthe pseudo aléatoire
+		        break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	//////faire free ()pour les malloc de Fatma!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
