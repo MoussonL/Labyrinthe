@@ -53,14 +53,14 @@ int main()
 		
 		        printf("le labyrinthe va etre généré aléatoirement\n");
 				/////Maze m_alea = //lab aléa donné par Fatma
-				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 0 sinon\n");
+				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
 					scanf("%s",fic_save);
 					///saveMaze(m_alea,fic_save);//sauvegarde le fichier généré sous le nom donné
 				}
-				else if(decision==0)
+				else if(decision==2)
 				{
 					printf("labyrinthe non sauvegardé\n");
 				}
@@ -70,6 +70,8 @@ int main()
 				}
 				break;
 		case 3: //labyrinthe pseudo aléatoire
+	        	printf("le labyrinthe va etre généré pseudo aléatoirement\n");
+	        	
 		        break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
