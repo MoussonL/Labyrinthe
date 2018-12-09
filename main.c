@@ -14,9 +14,10 @@ int main()
 			     
 			 
 				printf("donnez le nom de votre fichier, sinon tapez non et ce sera un fichier par défaut\n");
-				char* fic = ENTREE;
-				char* s = "non";
-				printf("hahahah");
+				char* fic = (char*)calloc(50,sizeof(char));
+				fic = ENTREE;
+				char* s = (char*)calloc(50,sizeof(char));
+				s = "non";
 				scanf("%s", fic);/////c'est là que ca marche pas
 				if (fic==s)
 				{
