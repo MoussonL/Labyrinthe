@@ -7,7 +7,7 @@
 
 #define ENTREE "ficlab.txt"
 
-typedef struct
+typedef struct Maze
 {
 	unsigned short int ** Matrix;
 	int Lin;
