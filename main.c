@@ -4,7 +4,7 @@ int main()
 {
 	int val = 0;
 	int decision=0;
-	char* fic_save;
+	char* fic_save=(char*)calloc(50,sizeof(char));
 	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3\n");
 	scanf("%d",&val);
 	Maze m;
@@ -15,16 +15,18 @@ int main()
 			 
 				printf("donnez le nom de votre fichier, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = (char*)calloc(50,sizeof(char));
-				fic = ENTREE;
-				char* s = (char*)calloc(50,sizeof(char));
+				char* s = (char*)calloc(3,sizeof(char));
 				s = "non";
 				scanf("%s", fic);/////c'est là que ca marche pas
-				if (fic==s)
+			    //fic = ENTREE;
+				if (*fic==*s)
 				{
-				     m = lectFic(fic);
+				    //fic défaut
+				     m = lectFic(ENTREE);
 				}
 				else
 				{
+				    //fic donné
 					m = lectFic(fic);
 				}
 				Maze m_fic = m;
