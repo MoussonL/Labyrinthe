@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h> 
 
+#define ENTREE "ficlab.txt"
 
 typedef struct
 {
