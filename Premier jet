@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "labyrinthe.h"
+
+void aff (Maze M) //val1 = M[i][j] | val2 = M[i][j-1] 
+{
+	int i,j,k;
+	for ( i = 0; i < M.col; i++) //Premier mur du haut
+	{
+		if((M.Matrix[0][i]/8)%2 == 1)
+		{
+			if ((M.Matrix[0][i-1]/8)%2 == 0)
+			{
+				printf("+--+");
+			}
+			else
+			{
+				printf("--+");
+			}
+		}
+		else
+		{
+			printf("   ");
+		}
+	}
+	printf("\n");
+
+	for (i = 0; i < M.lin; i++)
+	{
+		for (j = 0; j < M.col; j++)
+		{
+			if(M.Matrix[i][j]%2 == 1)//mur de gauche
+			{
+				if(M.Matrix[i][j-1]/4%2 == 0)
+				{
+					printf("|"); 
+				}
+			}
+			if((M.Matrix[i][j]/4)%2 == 1) //mur de droite
+			{
+				printf("  |"); 
+			}
+			else					//Mur ni Ã  droite ni Ã  gauche
+			{
+				printf("   ");
+			}
+		}
+			printf("\n");
+		for (j = 0; j < M.col; j++)
+		{
+			if((M.Matrix[i][j]/2)%2 == 1)
+			{
+				if ((M.Matrix[i][j-1]/2)%2 == 0)
+				{
+					printf("+--+");
+				}
+				else
+				{
+					printf("--+");
+				}
+			}
+			else
+			{
+				printf("  +");
+			}
+			
+		}
+		printf("\n");
+	}
+	
+		/*for (k = 0; k < M.col; k++)
+		{
+			if((M.Matrix[k][j]/2)%2 == 1)
+			{
+				printf("+--+"); //mur du bas
+			}
+			if((M.Matrix[i][j]/2)%2 == 0)
+			{
+				//if(M.Matrix[i][j]/%2 == 0)
+				printf("  "); //mur du bas
+			}
+			else
+			{
+				printf("  ");
+			}
+		}
+		
+}
+
+
+int main()
+{	
+	Maze M;
+	
+	
+	aff(M);
+
+return 0;
+}
