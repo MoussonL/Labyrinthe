@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
 #include "labyrinthe.h"
 
 //Fonction RandMaze1() qui génère un labyrinthe totalement aléatoire (Les cases ne sont pas forcément toutes accécibles => paforcément de chemain et l'entée/sortie sont n'importe où)
