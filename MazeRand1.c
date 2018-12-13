@@ -1,61 +1,52 @@
 #include "labyrinthe.h"
 
-//Fonction RandMaze1() qui génère un labyrinthe totalement aléatoire (Les cases ne sont pas forcément toutes accécibles => paforcément de chemain et l'entée/sortie sont n'importe où)
+//Creation du labyrinthe
 Maze RandMaze1()
 {
-	Maze maze; //Déclarer une variable labyrinthe
+	//Declarer une variable pour le labyrinthe
+	Maze maze;
+	Position p;
+	Position *Tab_pos; //Tableau des positions possible pour le choix de Entrée/sortie du labyrinthe
 	int i=0;
 	int j=0;
-	int choice; //Déclarer une variable pour le choix de la taille du labyrinthe (aléatoirement ou donner à l'entrée)
-	int size1; //Déclarer une variable pour le nombre de ligne qu'on aura besoin dans le cas où l'utilisateur fait renter la valeur
-	int size2; //Déclarer une variable pour le nombre de colonne qu'on aura besoin dans le cas où l'utilisateur fait renter la valeur
-       
-	/* 
-		*************** Choisir la taille du labyrinthe ***************
-	*/
+	int choice;
+	int size1;
+	int size2;
+	int index=0;
 
-	//Proposer à l'utilisateur de choisire la taille par lui même ou bien aléatoirement.
-	printf("Chosis une option: \n1-Taille Random\n2-Taille Personalise\n"); 
+       //Generer la taille du labyrinthe random
+	printf("Chosis une option: \n1-Taille Random\n2-Taille Personalise\n");
 	scanf("%d",&choice);
-
 	switch(choice){
-		//1er choix: génération alétoire de la taille du labyrinthe(max=100x100)
 		case 1:	size1 = rand()%100 + 1; 
-			size2 = rand()%100 + 1; 
+				size2 = rand()%100 + 1; 
 				break;
-		//2ème choix: faire rentrer la taille du labyrinthe par l'utilisateur (max=100x100)
-		case 2: printf("Donner la taille (n,m) de votre labyrinthe (max(n,m)=100x100) : \n");
+		case 2: printf("Donner la taille (n,m) de votre labyrinthe : \n");
 				scanf("%d",&size1);
 				scanf("%d",&size2);
 				break;
 		default: break;
 	}
-	
-	/*
-		*************** Création du labyrinthe *************** 
-	*/
 
-	//Initialisation de la taille de la matrice du labyrinthe
+	//Initialiser la taille de la matrice
 	maze.Lin = size1;
 	maze.Col = size2;
 	
-	//Allocation d'un espace dynamique pour la matrice du labyrinthe
-	maze.Matrix =  calloc(maze.Lin , sizeof(unsigned short *));
+
+	maze.matrix =  calloc(maze.Lin , sizeof(unsigned short *));
 	for (i=0;i<maze.Lin;i++)
 	{
-		maze.Matrix[i]=  calloc(maze.Col , sizeof(unsigned short));
+		maze.matrix[i]=  calloc(maze.Col , sizeof(unsigned short));
 	}
 	
-	//Definir des variables dont on aura besoin dans le remplissage de la matrice et la gestion des murs
-	int test_values1; //variable intermédiaire que nous allons utiliser pour des tests
-	int test_values2; //variable intermédiaire que nous allons utiliser pour des tests
-	int test_values3; //variable intermédiaire que nous allons utiliser pour des tests
-	int test_values4; //variable intermédiaire que nous allons utiliser pour des tests
-	int test_values5; //variable intermédiaire que nous allons utiliser pour des tests
-	int test_values6; //variable intermédiaire que nous allons utiliser pour des tests
-	int val; //variable intermédiaire que nous allons utiliser pour remplire les case de la matrice
-
-	//Remplire la matrice
+	
+	//Génération des murs du labyrinthe (remplissage de la matrice)s
+	int test_values1;
+	int test_values2;
+	int test_values3;
+	int test_values4;
+	int val;
+	
 	for(i=0;i<maze.Lin;i++)
 	{
 		for(j=0;j<maze.Col;j++)
@@ -65,209 +56,188 @@ Maze RandMaze1()
 			{ 
 				if(j==0)
 				{
-					//Cas Matrix[i][j] = Matrix[0][0]: 
-
-					do{
-						//Donner à val une valeur alétoire modulo 15 de sorte à avoir un entier sur 4 bits (val=(b3 b2 b1 b0) en base 2) pour la gestion des 4 murs de chaque case de la matrice
-						val = rand()%15;
-						//Prendre la valeur du b0 de val
-						test_values1 = 1 &(val>>0);
-						//Prendre la valeur du b3 de val
-						test_values2 = 1 &(val>>3);
-						//Faire tourner la boucle jusqu'à avoir un b0 et b3 de val égales à 1 car il nous faut des murs sur les côté
-					}while((test_values1 != 1) || (test_values2 != 1) );
-					//Affecter la valeur à Matrix[0][0]
-                    			maze.Matrix[i][j]=val;
-				}
-				else if(j == maze.Col-1)
-				{
-					//Cas Matrix[i][j] = Matrix[0][Col-1]:
-					do{
-						val = rand()%15;
-						//Prendre les valeur du b2 de val
-						test_values1 = 1 &(val>>2);
-						//Prendre la valeur du b3 de val
-						test_values2 = 1 &(val>>3);
-						//Prendre les valeur du b0 de val
-						test_values3 = 1 &(val>>0);
-						//Prendre la valeur du b2 de Matrix[0][j-1]
-						test_values4 = 1 &(maze.Matrix[i][j-1]>>2);
-					//Faire tourner la boucle jusqu'à avoir un b2 et b3 de val égales à 1 car il faut des murs sur les côtés du labyrithe et b0 de val soit égal à b2 de Matrix[0][j-1] pour qu'il n'y est pas d'anomalie entre les murs que partages les cases voisines
-					}while((test_values1 != 1) || (test_values2 != 1) || (test_values3 != test_values4) );
-					//Affecter la valeur à Matrix[0][Col-1]
-                    			maze.Matrix[i][j]=val;
+					val = rand()%15;
+                    maze.matrix[i][j]=val;
 				}
 				else
 				{
-					//Cas Matrix[i][j] = {Matrix[0][1], Matrix[0][2], Matrix[0][3], ... , Matrix[0][Col-2]:
-					do{	
+					do{
 						val = rand()%15;
-						//Prendre la valeur du b3 de val
-						test_values1 = 1 &(val>>3); 
-						//Prendre la valeur du b0 de val
-						test_values2 = 1 &(val>>0);
-						//Prendre la valeur du b3 de Matrix[0][j-1] 
-						test_values3 = 1 &(maze.Matrix[i][j-1]>>2);
-					//Faire tourner la boucle jusqu'à avoir b3 de val égal à 1 car il nous faut un murs sur les côtés du labyrinthe et b0 de val soit égal à b2 de Matrix[0][j-1] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines	
-					}while((test_values1 != 1) || (test_values2 != test_values3));
-					//Affecter la valeur à Matrix[0][j]
-					maze.Matrix[i][j]=val;	
+						test_values1 = 1 &(val>>0);
+						test_values2 = 1 &(maze.matrix[i][j-1]>>2);
+						
+					}while(test_values1 != test_values2);
+
+					maze.matrix[i][j]=val;	
 				}
 			}
-			else if (i == maze.Lin-1)
+			else 
 			{
 				if(j==0)
 				{
-					//Cas Matrix[Lin-1,0]:	
-					do{
-						val = rand()%15;
-						
-						//Prendre la valeur du b1 de val
-						test_values1 = 1 &(val>>1);
-						//Prendre la valeur du b3 de val
-						test_values2 = 1 &(val>>3);
-						//Prendre la valeur du b0 de val
-						test_values3 = 1 &(val>>0);
-						//Prendre la valeur du b1 de Matrix[i-1][0]
-						test_values4 = 1 &(maze.Matrix[i-1][j]>>1);		
-					//Faire tourner la boucle jusqu'à avoir b1 et b3 de val égales à 1 car il nous faut des murs sur les côtés du labyrinthe et b0 de val soit égal à b1 de Matrix[i-1][0] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines
-					}while((test_values1 != 1) || (test_values2 != 1) || (test_values3 != test_values4));
-					//Affecter la valeur à Matrix[Lin-1][0]
-					maze.Matrix[i][j]=val;	
 					
-				}
-				else if (j == maze.Col-1)
-				{
-					//Cas Matrix[Lin-1,Col-1]:
 					do{
-						val = rand()%15;
-						//Prendre la valeur du b1 de val
-						test_values1 = 1 &(val>>1);
-						//Prendre la valeur du b2 de val
-						test_values2 = 1 &(val>>2);
-						//Prendre la valeur du b0 de val
-						test_values3 = 1 &(val>>0);
-						//Prendre la valeur du b2 de Matrix[Lin-1][Col-1]
-						test_values4 = 1 &(maze.Matrix[i][j-1]>>2);
-						//Prendre la valeur du b3 de val
-						test_values5 = 1 &(val>>3);
-						//Prendre la valeur du b1 de Matrix[Lin-1][Col-1]
-						test_values6 = 1 &(maze.Matrix[i-1][j]>>1);
-					//Faire tourner la boucle jusqu'à avoir b1 et b2 de val égales à 1 car il nous faut des murs sur les côtés du labyrinthe et b0 de val soit égal à b2 de Matrix[Lin-1][Col-1] et que b3 de val soit égal à b1 de Matrix[Lin-1][Col-1] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines
-					}while(((test_values1 != 1) || (test_values2 != 1)) || ((test_values3 != test_values4) || (test_values5 != test_values6)));	
-					//Affecter la valeur à Matrix[Lin-1][Col-1]
-					maze.Matrix[i][j]=val;
+					val = rand()%15;
+					test_values1 = 1 &(val>>3);
+					test_values2 = 1 &(maze.matrix[i-1][j]>>1);
+					}while(test_values1 != test_values2);	
+					maze.matrix[i][j]=val;	
+					
 				}
 				else
 				{
-					//Cas Matrix[Lin-1,j]={Matrix[Lin-1,1], .. ,Matrix[Lin-1,j]}:					
+						
 					do{
-						val = rand()%15;
-						//Prendre la valeur du b0 de val
-						test_values1 = 1 &(val>>0);
-						//Prendre la valeur du b1 de val
-						test_values2 = 1 &(val>>1);
-						//Prendre la valeur du b2 de Matrix[Lin-1][j-1]
-						test_values3 = 1 &(maze.Matrix[i][j-1]>>2);
-						//Prendre la valeur du b3 de val
-						test_values4 = 1 &(val>>3);
-						//Prendre la valeur du b1 de Matrix[Lin-1][j-1]
-						test_values5 = 1 &(maze.Matrix[i-1][j]>>1);
-					//Faire tourner la boucle jusqu'à avoir b0 de val égal à 1 car il nous faut des murs sur les côtés du labyrinthe et b1 de val soit égal à b2 de Matrix[Lin-1][j-1] et que b3 de val soit égal à b1 de Matrix[Lin-1][j-1] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines
-					}while((test_values1 != 1) || (test_values2 != test_values3) || (test_values4 != test_values5));	
-					//Affecter la valeur à Matrix[Lin-1][Col-1]
-					maze.Matrix[i][j]=val;	
-				}
-			}
-			else
-			{
-				if(j==0)
-				{
-					//Cas Matrix[i,j]={Matrix[1,0], .. ,Matrix[Lin-2,0]}:
-					do{
-						val = rand()%15;
-						//Prendre la valeur du b0 de val
-						test_values1 = 1 &(val>>0);
-						//Prendre la valeur du b3 de val
-						test_values2 = 1 &(val>>3);
-						//Prendre la valeur du b1 de Matrix[i-1][j]
-						test_values3 = 1 &(maze.Matrix[i-1][j]>>1);
-					//Faire tourner la boucle jusqu'à avoir b0 de val égal à 1 car il nous faut des murs sur les côtés du labyrinthe et b3 de val soit égal à b1 de Matrix[i-1][j] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines	
-					}while((test_values1 != 1) || (test_values2 != test_values3));
-					//Affecter la valeur à Matrix[Lin-1][Col-1]
-					maze.Matrix[i][j]=val;	
+					val = rand()%15;
 					
+					test_values1 = 1 &(val>>0);
+					test_values2 = 1 &(maze.matrix[i][j-1]>>2);
+					
+					test_values3 = 1 &(val>>3);
+					test_values4 = 1 &(maze.matrix[i-1][j]>>1);
+					}while((test_values3 != test_values4) || (test_values1 != test_values2));	
+					
+					maze.matrix[i][j]=val;	
 				}
-				else if (j == maze.Col-1)
-				{
-					//Cas Matrix[i,j]={Matrix[1,Col-1], .. ,Matrix[Lin-2,Col-1]}:
-					do{
-						val = rand()%15;
-						//Prendre la valeur du b2 de val
-						test_values1 = 1 &(val>>2);
-						//Prendre la valeur du b0 de val
-						test_values2 = 1 &(val>>0);
-						//Prendre la valeur du b2 de Matrix[i][j-1]
-						test_values3 = 1 &(maze.Matrix[i][j-1]>>2);
-						//Prendre la valeur du b3 de val
-						test_values4 = 1 &(val>>3);
-						//Prendre la valeur du b1 de Matrix[i][j-1]
-						test_values5 = 1 &(maze.Matrix[i-1][j]>>1);
+			}		
+		}
+	}
+			
+	//Entree du labyrinthe
+	//Creation d'un tableau qui contient les positions possible pour générer une entrée i.e: (i,j)={(0,0),...,(0,size-1),(1,0),...,(size-1,0),(0,size-1),...,(size-1,size-1),(size-1,0),...,(size-1,size-1)} 
 
-					//Faire tourner la boucle jusqu'à avoir b2 de val égal à 1 de car il nous faut des murs sur les côtés du labyrinthe et b0 de val soit égal à b2 de Matrix[i][j-1] et b3 de val soit égal à b1 de Matrix[i][j-1] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines	
-					}while((test_values1 != 1) || ((test_values2 != test_values3) || (test_values4 != test_values5)));	
-					//Affecter la valeur à Matrix[Lin-1][Col-1]
-					maze.Matrix[i][j]=val;
-				}
-				else
-				{	
-					//Cas Matrix[i,j] / i={1,..,Lin-2} et j={1,..,Col-2}:					
-					do{
-						val = rand()%15;
-						//Prendre la valeur du b0 de val
-						test_values1 = 1 &(val>>0);
-						//Prendre la valeur du b2 de Matrix[i][j-1]
-						test_values2 = 1 &(maze.Matrix[i][j-1]>>2);
-						//Prendre la valeur du b3 de val
-						test_values3 = 1 &(val>>3);
-						//Prendre la valeur du b1 de Matrix[i-1][j]
-						test_values4 = 1 &(maze.Matrix[i-1][j]>>1);
-					//Faire tourner la boucle jusqu'à avoir b0 de val égal à b2 de Matrix[i][j-1] et b3 de val soit égal à b1 de Matrix[i-1][j] pour qu'il n'y est pas d'anomalie entre les murs que partagent les cases voisines	
-					}while((test_values1 != test_values2) || (test_values3 != test_values4));	
-					//Affecter la valeur à Matrix[i][j]
-					maze.Matrix[i][j]=val;	
-				}		
-			}
-						
+	int Tab_size = (maze.Col + maze.Col + maze.Lin + maze.Lin)-4;
+	Tab_pos = calloc( Tab_size , sizeof(Position));
+	//Regrouper les postions possible dans un tableau (type position)
+
+	//Remplire le tableau Tab_pos des positions d'entrée possibles (i,j)={(0,0),...,(0,size-1)}
+	for(i=0;i<maze.Col;i++){
+		p.x = 0;
+		p.y = i;
+		Tab_pos[index]=p;
+		index++;
+		
+		if(i==0) 
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
+			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 0);
+		} 
+		else if(i==maze.Col-1)
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
+			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 2);
+		}
+		else
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
 		}
 	}
 	
-	//Choisir la position de l'entrée du labyrinthe aléatoirement
-	test_values1 = rand()%maze.Lin;
-	test_values2 = rand()%maze.Col;
+	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(size-1,0),...,(size-1,size-1)}
+	for(i=0;i<maze.Col;i++){
+		p.x = maze.Lin-1;
+		p.y = i;
+		Tab_pos[index] = p;
+		index++;
+		
+		if(i==0) 
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
+			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 0);
+		} 
+		else if(i==maze.Col-1)
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
+			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 2);
+		}
+		else
+		{
+			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
+		}
+	}
+	
+	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(1,0),...,(size-2,0)}
+	for(i=1;i<maze.Lin-1;i++){
+		p.x = i;
+		p.y = 0;
+		Tab_pos[index]=p;
+		index++;
+		
+		
+		// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+		maze.matrix[i][0] ^= (-1 ^ maze.matrix[i][0]) & (1UL << 0);
+		
+	}
+	
+	
+	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(1,size-1),...,(size-1,size-1)}
+	for(i=1;i<maze.Lin-1;i++){
+		p.x = i;
+		p.y = maze.Col-1;
+		Tab_pos[index]=p;
+		index++;
+		
+		// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
+		maze.matrix[i][maze.Col-1] ^= (-1 ^ maze.matrix[i][maze.Col-1]) & (1UL << 2);
+	}
+	
+	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
+	int Pos_InX= rand()%maze.Lin;
+	int Pos_InY= rand()%maze.Col;
+	
+	maze.In[0]=Pos_InX;
+	maze.In[1]=Pos_InY;
+	
 
-	//Affecter la valeur de l'entrée à In[2]
-	maze.In[0] = test_values1;
-	maze.In[1] = test_values2;
-	
-	//Choisir la position de la sortie du labyrinthe aléatoirement
-	//Faire un test pour que le choix de la sortie ne coincide pas avec l'entrée
-	do{
-		test_values3 = rand()%maze.Lin;
-	}while(test_values1 == test_values3);
+	int Pos_OutX = 0 ;
+	int Pos_OutY = 0;
 	
 	do{
-		test_values4 = rand()%maze.Col;
-	}while(test_values2 == test_values4);
+		Pos_OutX = rand()%maze.Lin;
+	}while(Pos_OutX == Pos_InX);
 	
-	//Affecter la valeur de l'entrée à Out[2]
-	maze.Out[0] = test_values3;
-	maze.Out[1] = test_values4;
+	do{
+		Pos_OutY = rand()%maze.Col;
+	}while(Pos_OutY == Pos_InY);
+	
+	
+	maze.Out[0] = Pos_OutX;
+	maze.Out[1] = Pos_OutY;
+	
+	//Sortie du labyrinthe
+	//Génération d'une sortie aussi loin possible de l'entrée	
+//	if(Tab_pos[Pos_In].x == 0){
+//		do{
+//			Pos_Out = rand()%Tab_size;
+//		}while(Tab_pos[Pos_Out].x != size1-1);
+//	}
+//	else if (Tab_pos[Pos_In].x == size1-1){
+//		do{
+//			Pos_Out = rand()%Tab_size;
+//		}while(Tab_pos[Pos_Out].x!= 0);
+//	}
+//	else if(Tab_pos[Pos_In].y == 0){
+//		do{
+//			Pos_Out= rand()%Tab_size;
+//		}while(Tab_pos[Pos_Out].y != size1-1);
+//	}else if(Tab_pos[Pos_Out].y == size1-1){
+//		do{
+//			Pos_Out= rand()%Tab_size;
+//		}while(Tab_pos[Pos_Out].y != 0);
+//	}
 
-	//Affecter la valeur de l'entrée à Find[2] (Positioner le chercheur du chemin à l'entrée
+	
+//	maze.Out[0] = Tab_pos[Pos_Out].x;
+//	maze.Out[1] = Tab_pos[Pos_Out].y;
+	
 	maze.Find[0] = maze.In[0];
 	maze.Find[1] = maze.In[1];
-
 	return maze;
-
+}
 }
