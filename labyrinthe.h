@@ -7,6 +7,9 @@
 
 #define ENTREE "ficlab.txt"
 
+#define DISTANCE_MAX 4095 // 2**12 - 1
+#define NOPATH -1
+
 typedef struct Maze
 {
 	unsigned short int ** Matrix;
@@ -22,6 +25,11 @@ typedef struct Position {
    int Y;
 } Position;
 
+typedef struct 
+{
+	Position * Way; //un tableau de position
+	int distance;
+}Path;
 
 
 
@@ -44,6 +52,19 @@ void aff(Maze M);
 
 
 
+//fonctionx nécessaires à la recherche de chemin:
+void display_lab(Maze* maze);
+void set_distance_max(Maze* maze);
+int get_distance(Maze* maze, int ligne, int colonne);
+void set_distance(Maze* maze, int ligne, int colonne, int distance);
+int ft_can_go_there(Maze maze, int dir);
+void test_fonction_can_go_there(Maze maze);
+void ft_mapping_maze(Maze maze, int longueur);
+void ft_move_cursor(Maze* maze, int dir);
+int is_not_a_wall(Maze maze, int ligne, int colonne, int dir);
 
+Position pos_adjacent_cell(Maze maze, int ligne, int colonne);
+Path ft_build_path(Maze maze);
+Path way_search(Maze maze
 
 #endif
