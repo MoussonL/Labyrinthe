@@ -6,7 +6,7 @@ void aff(Maze M) //val1 = M[i][j] | val2 = M[i][j-1]
 {
 	int i,j,k;
 
-	for ( i = 0; i < M.Col; i++) //Premier mur du haut
+	for ( i = 0; i < M.Col + 1 ; i++) //Premier mur du haut
 	{
 		if((M.Matrix[0][i]/8)%2 == 1)
 		{
@@ -71,7 +71,7 @@ void aff(Maze M) //val1 = M[i][j] | val2 = M[i][j-1]
 			}
 		}
 			printf("\n");
-		for (j = 0; j < M.Col; j++) //Affiche mur du bas
+		for (j = 0; j < M.Col + 1; j++) //Affiche mur du bas
 		{
 			if((M.Matrix[i][j]/2)%2 == 1)
 			{
