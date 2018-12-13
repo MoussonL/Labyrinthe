@@ -50,10 +50,10 @@ int MazeValid(Maze m);
 void aff(Maze M);
 
 //Génération d'un labyrinthe aléatoirement 
-Maze MazeRand1();
+Maze RandMaze1();
 
 
-//fonctionx nécessaires à la recherche de chemin:
+//fonctions nécessaires à la recherche de chemin:
 void display_lab(Maze* maze);
 void set_distance_max(Maze* maze);
 int get_distance(Maze* maze, int ligne, int colonne);
@@ -67,5 +67,6 @@ int is_not_a_wall(Maze maze, int ligne, int colonne, int dir);
 Position pos_adjacent_cell(Maze maze, int ligne, int colonne);
 Path ft_build_path(Maze maze);
 Path way_search(Maze maze);
+void display_path(Path path);
 
 #endif

@@ -153,3 +153,12 @@ void aff(Maze M) //val1 = M[i][j] | val2 = M[i][j-1]
 		printf("\n");
 	}
 }
+
+/*void display_path(Path path)
+{
+	printf("distance : %d\n", path.distance);
+	for (int i = 0; i < path.distance + 1; i++)
+	{
+		printf("(%d\t, %d\t) \n ", path.Way[i].X, path.Way[i].Y);
+	}
+} En cas de besoin, affiche les cases successives que le chemin emprunte. Bisous, Morgane <3 */

@@ -170,3 +170,12 @@ Path way_search(Maze maze)
 	ft_mapping_maze(maze,0);
 	return(ft_build_path(maze));
 }
+
+void display_path(Path path)
+{
+	printf("distance : %d\n", path.distance);
+	for (int i = 0; i < path.distance + 1; i++)
+	{
+		printf("(%d\t, %d\t) \n ", path.Way[i].X, path.Way[i].Y);
+	}
+}
