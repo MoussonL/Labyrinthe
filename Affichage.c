@@ -48,24 +48,78 @@ void aff(Maze M) //val1 = M[i][j] | val2 = M[i][j-1]
 			{
 				if (M.Matrix[i][j]%2 == 1)
 				{
-					printf("   |");
-					//printf("+---+"); 
+					if(i == M.In[0] && j == M.In[1])
+					{
+						printf(" E |");
+					}
+					else
+					{	
+						if(i == M.Out[0] && j == M.Out[1])
+						{
+							printf(" S |");
+						}
+						else
+						{
+							printf("   |");
+						}
+					}
 				}
 				else
 				{
-					printf("    |");
-					//printf("+---+");
+					if(i == M.In[0] && j == M.In[1])
+					{
+						printf("  E |");
+					}
+					else	
+					{
+						if(i == M.Out[0] && j == M.Out[1])
+						{
+							printf(" S |");
+						}
+						else
+						{
+							printf("    |");
+						}
+					}
 				} 
 			}
 			else							//Mur ni Ã  droite ni Ã  gauche
 			{	
 				if(M.Matrix[i][j]%2 == 0 && (M.Matrix[i][j]/4)%2 == 0)	
-					{	
-						printf("    "); // espace supplémentaire pour compenser l'intersection
+				{
+					if(i == M.In[0] && j == M.In[1])
+					{
+						printf("  E ");
 					}
+					else	
+					{
+						if(i == M.Out[0] && j == M.Out[1])
+						{
+							printf("  S ");
+						}
+						else
+						{
+							printf("    ");		// espace supplémentaire pour compenser l'intersection
+						}
+					}
+				}
 				else
 				{
-					printf("   ");
+					if(i == M.In[0] && j == M.In[1])
+					{
+						printf(" E ");
+					}
+					else
+					{
+						if(i == M.Out[0] && j == M.Out[1])
+						{
+							printf(" S ");
+						}
+						else
+						{
+							printf("   ");
+						}
+					}
 				}
 				
 			}
