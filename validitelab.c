@@ -11,7 +11,7 @@ int* itob(int a, int * T)
 	int i = 0;
 	while(a!=0&&i<16)
 	{
-		if(a==0&&i<16)//remplit toutes les cases restnates à 0 
+		if(a==0&&i<16)//remplit toutes les cases restantes à 0 
 		{
 			T[i]=0;
 		}
@@ -35,16 +35,14 @@ int* itob(int a, int * T)
 
 int MazeValid(Maze m)
 {
-	//test validité col==lig entree sortie<taille
-	if(m.Lin!=m.Col)
+	//test validité entree sortie<taille
+
+	if((m.In[0]<0)||(m.In[0]>m.Col-1)||(m.In[1]<0)||(m.In[1]>m.Lin-1))
 	{
-		if((m.In[0]<0)||(m.In[0]>m.Col-1)||(m.In[1]<0)||(m.In[1]>m.Lin-1))
+		if((m.Out[0]<0)||(m.Out[0]>m.Col-1)||(m.Out[1]<0)||(m.Out[1]>m.Lin-1))
 		{
-			if((m.Out[0]<0)||(m.Out[0]>m.Col-1)||(m.Out[1]<0)||(m.Out[1]>m.Lin-1))
-			{
-				printf("nb de lin différent nb de col ou index entree/sortie faux : erreur !!\n");
-				return 0;
-			}
+			printf("index entree/sortie faux : erreur !!\n");
+			return 0;
 		}
 	}
 	//test correspondance murs
