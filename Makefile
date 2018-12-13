@@ -14,4 +14,4 @@ Affichage.o : Affichage.c labyrinthe.h
 	gcc -c -O3 Affichage.c
   
 clean: 
-rm *.o
+	rm *.o
