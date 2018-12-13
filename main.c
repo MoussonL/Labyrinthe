@@ -58,7 +58,7 @@ int main()
 				if(decision==1)
 				{
 					scanf("%s",fic_save);
-					///saveMaze(m_alea,fic_save);//sauvegarde le fichier généré sous le nom donné
+					saveMaze(m_alea,fic_save);//sauvegarde le fichier généré sous le nom donné
 				}
 				else if(decision==2)
 				{
