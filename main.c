@@ -52,7 +52,7 @@ int main()
 		case 2:	//labyrinthe totalement aléatoire
 		
 		        printf("le labyrinthe va etre généré aléatoirement\n");
-				/////Maze m_alea = //lab aléa donné par Fatma
+				Maze m_alea = MareRand1();
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
