@@ -53,6 +53,7 @@ int main()
 		
 		        printf("le labyrinthe va etre généré aléatoirement\n");
 				Maze m_alea = MazeRand1();
+				aff(m_alea);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
