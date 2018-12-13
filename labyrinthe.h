@@ -49,7 +49,8 @@ int MazeValid(Maze m);
 //affiche le lab
 void aff(Maze M);
 
-
+//Génération d'un labyrinthe aléatoirement 
+Maze MazeRand1();
 
 
 //fonctionx nécessaires à la recherche de chemin:
