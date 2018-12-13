@@ -66,6 +66,6 @@ int is_not_a_wall(Maze maze, int ligne, int colonne, int dir);
 
 Position pos_adjacent_cell(Maze maze, int ligne, int colonne);
 Path ft_build_path(Maze maze);
-Path way_search(Maze maze
+Path way_search(Maze maze);
 
 #endif
