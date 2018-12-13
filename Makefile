@@ -1,20 +1,17 @@
-//liaison des fichiers.o ensemble
-lab : traitementfichiers.o validitelab.o main.o
-    gcc -o lab lab.o main.o//ca ????
-    gcc -o lab validitelab.o traitementfichiers.o aff.o main.o//ou ca ?????
-//main + .h
-main.o : main.c labyrinthe.h
-    gcc -c -O3 main.c
-//chaque fichiers.c +fichier.h sauf le main
-validitelab.o : validitelab.c labyrinthe.h
-    gcc -c -O3 validitelab.c
+lab : fichiers.o validite.o  aff.o main.o
+	gcc -o lab validite.o fichiers.o aff.o main.o
 
-traitementfichiers.o : traitementfichiers.c labyrinthe.h
-    gcc -c -O3 traitementfichiers.c
+main.o : main.c labyrinthe.h
+	gcc -c -O3 main.c 
+
+validite.o : validite.c labyrinthe.h
+	gcc -c -O3 validite.c
+
+fichiers.o : fichiers.c labyrinthe.h
+	gcc -c -O3 fichiers.c
  
 aff.o : aff.c labyrinthe.h
- gcc -c -03 aff.c
- 
-//nettoie les .o    
+	gcc -c -O3 aff.c
+  
 clean: 
 	rm *.o
