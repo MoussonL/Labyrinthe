@@ -2,16 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-
-//Définir un type pour le labyrinthe
-typedef struct Maze {
-   unsigned short  ** Matrix; //Matrice = pointeur de pointeur
-   int Lin; //Nombre de lignes
-   int Col; //Nombre de colonnes 
-   int In[2]; //Position de l'entrée i.e In[0]=ligne et In[1]=colonne
-   int Out[2]; //Position de la sortie i.e Out[0]=ligne et Out[1]=colonne
-   int Find[2]; //Position du chercheur du chemain i.e Find[0]=ligne et Find[1]=colonne
-} Maze;
+#include "labyrinthe.h"
 
 //Fonction RandMaze1() qui génère un labyrinthe totalement aléatoire (Les cases ne sont pas forcément toutes accécibles => paforcément de chemain et l'entée/sortie sont n'importe où)
 Maze RandMaze1()
@@ -282,44 +273,5 @@ Maze RandMaze1()
 	maze.Find[1] = maze.In[1];
 
 	return maze;
-}
 
-int main ()
-{
-	srand(time(NULL));   
-     
-	int i=0,j=0;
-	FILE * fp;
-	
-	//Générer un labyrinthe
-	Maze maze = RandMaze1();
-	
-	//Créer un fichier .txt qui va contenir la structure du labyrinthe
-	fp = fopen ("Matrix.txt","w");
-	fprintf (fp,"%d %d %d %d %d %d\n", maze.Lin,maze.Col, maze.In[0], maze.In[1], maze.Out[0], maze.Out[1]);
-
-	//Affichage
-	printf("%d %d %d %d %d %d\n",maze.Lin,maze.Col, maze.In[0], maze.In[1], maze.Out[0], maze.Out[1]);
-	printf("\n");
-
-	
-	for(i=0;i<maze.Lin;i++)
-	{
-			
-		for(j=0;j<maze.Col;j++)
-		{
-			
-			printf("%d ",maze.Matrix[i][j]);
-			fprintf (fp,  "%d ",maze.Matrix[i][j]);
-		}
-		printf("\n");
-		fprintf (fp,"\n");
-	}
-
-	fclose (fp);
-
-	//Liberer l'espace allouer pour le labyrinthe
-	free(maze.Matrix);
-
- return 0;
 }
