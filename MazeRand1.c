@@ -240,4 +240,3 @@ Maze RandMaze1()
 	maze.Find[1] = maze.In[1];
 	return maze;
 }
-}
