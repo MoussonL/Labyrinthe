@@ -33,10 +33,10 @@ Maze RandMaze1()
 	maze.Col = size2;
 	
 
-	maze.matrix =  calloc(maze.Lin , sizeof(unsigned short *));
+	maze.Matrix =  calloc(maze.Lin , sizeof(unsigned short *));
 	for (i=0;i<maze.Lin;i++)
 	{
-		maze.matrix[i]=  calloc(maze.Col , sizeof(unsigned short));
+		maze.Matrix[i]=  calloc(maze.Col , sizeof(unsigned short));
 	}
 	
 	
@@ -57,18 +57,18 @@ Maze RandMaze1()
 				if(j==0)
 				{
 					val = rand()%15;
-                    maze.matrix[i][j]=val;
+                    maze.Matrix[i][j]=val;
 				}
 				else
 				{
 					do{
 						val = rand()%15;
 						test_values1 = 1 &(val>>0);
-						test_values2 = 1 &(maze.matrix[i][j-1]>>2);
+						test_values2 = 1 &(maze.Matrix[i][j-1]>>2);
 						
 					}while(test_values1 != test_values2);
 
-					maze.matrix[i][j]=val;	
+					maze.Matrix[i][j]=val;	
 				}
 			}
 			else 
@@ -79,9 +79,9 @@ Maze RandMaze1()
 					do{
 					val = rand()%15;
 					test_values1 = 1 &(val>>3);
-					test_values2 = 1 &(maze.matrix[i-1][j]>>1);
+					test_values2 = 1 &(maze.Matrix[i-1][j]>>1);
 					}while(test_values1 != test_values2);	
-					maze.matrix[i][j]=val;	
+					maze.Matrix[i][j]=val;	
 					
 				}
 				else
@@ -91,13 +91,13 @@ Maze RandMaze1()
 					val = rand()%15;
 					
 					test_values1 = 1 &(val>>0);
-					test_values2 = 1 &(maze.matrix[i][j-1]>>2);
+					test_values2 = 1 &(maze.Matrix[i][j-1]>>2);
 					
 					test_values3 = 1 &(val>>3);
-					test_values4 = 1 &(maze.matrix[i-1][j]>>1);
+					test_values4 = 1 &(maze.Matrix[i-1][j]>>1);
 					}while((test_values3 != test_values4) || (test_values1 != test_values2));	
 					
-					maze.matrix[i][j]=val;	
+					maze.Matrix[i][j]=val;	
 				}
 			}		
 		}
@@ -120,19 +120,19 @@ Maze RandMaze1()
 		if(i==0) 
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
-			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 0);
+			maze.Matrix[0][i] ^= (-1 ^ maze.Matrix[0][i]) & (1UL << 3);
+			maze.Matrix[0][i] ^= (-1 ^ maze.Matrix[0][i]) & (1UL << 0);
 		} 
 		else if(i==maze.Col-1)
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
-			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 2);
+			maze.Matrix[0][i] ^= (-1 ^ maze.Matrix[0][i]) & (1UL << 3);
+			maze.Matrix[0][i] ^= (-1 ^ maze.Matrix[0][i]) & (1UL << 2);
 		}
 		else
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[0][i] ^= (-1 ^ maze.matrix[0][i]) & (1UL << 3);
+			maze.Matrix[0][i] ^= (-1 ^ maze.Matrix[0][i]) & (1UL << 3);
 		}
 	}
 	
@@ -146,19 +146,19 @@ Maze RandMaze1()
 		if(i==0) 
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
-			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 0);
+			maze.Matrix[maze.Lin-1][i] ^= (-1 ^ maze.Matrix[maze.Lin-1][i]) & (1UL << 1);
+			maze.Matrix[maze.Lin-1][i] ^= (-1 ^ maze.Matrix[maze.Lin-1][i]) & (1UL << 0);
 		} 
 		else if(i==maze.Col-1)
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
-			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 2);
+			maze.Matrix[maze.Lin-1][i] ^= (-1 ^ maze.Matrix[maze.Lin-1][i]) & (1UL << 1);
+			maze.Matrix[maze.Lin-1][i] ^= (-1 ^ maze.Matrix[maze.Lin-1][i]) & (1UL << 2);
 		}
 		else
 		{
 			// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-			maze.matrix[maze.Lin-1][i] ^= (-1 ^ maze.matrix[maze.Lin-1][i]) & (1UL << 1);
+			maze.Matrix[maze.Lin-1][i] ^= (-1 ^ maze.Matrix[maze.Lin-1][i]) & (1UL << 1);
 		}
 	}
 	
@@ -171,7 +171,7 @@ Maze RandMaze1()
 		
 		
 		// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-		maze.matrix[i][0] ^= (-1 ^ maze.matrix[i][0]) & (1UL << 0);
+		maze.Matrix[i][0] ^= (-1 ^ maze.Matrix[i][0]) & (1UL << 0);
 		
 	}
 	
@@ -184,7 +184,7 @@ Maze RandMaze1()
 		index++;
 		
 		// number ^= (- (0 ou 1) ^ number) & (1UL << (le bit a changer(0,1,2,3)));
-		maze.matrix[i][maze.Col-1] ^= (-1 ^ maze.matrix[i][maze.Col-1]) & (1UL << 2);
+		maze.Matrix[i][maze.Col-1] ^= (-1 ^ maze.Matrix[i][maze.Col-1]) & (1UL << 2);
 	}
 	
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
