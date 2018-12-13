@@ -35,7 +35,7 @@ int main()
 					if(MazeValid(m_fic))//test si le labyrinthe est valide 
 					{
 						printf("lab valide\n");
-						/////////////////afficher le lab du fichier donné ou par défaut !!!!!!!!!!
+						aff(m_fic);
 					}
 					else
 					{
