@@ -38,7 +38,8 @@ int* itob(int a, int * T);
 //test la validité du labyrinthe
 int MazeValid(Maze m);
 
-
+//affiche le lab
+void aff(Maze M);
 
 
 
