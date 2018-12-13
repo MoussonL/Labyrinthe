@@ -1,5 +1,5 @@
-lab : fichiers.o validite.o  affichage.o main.o
-	gcc -o lab validite.o fichiers.o affichage.o main.o
+lab : fichiers.o validite.o  Affichage.o main.o
+	gcc -o lab validite.o fichiers.o Affichage.o main.o
 
 main.o : main.c labyrinthe.h
 	gcc -c -O3 main.c 
@@ -10,8 +10,8 @@ validite.o : validite.c labyrinthe.h
 fichiers.o : fichiers.c labyrinthe.h
 	gcc -c -O3 fichiers.c
  
-affichage.o : affichage.c labyrinthe.h
-	gcc -c -O3 affichage.c
+Affichage.o : Affichage.c labyrinthe.h
+	gcc -c -O3 Affichage.c
   
 clean: 
-	rm *.o
+rm *.o
