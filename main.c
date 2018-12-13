@@ -17,7 +17,7 @@ int main()
 				char* fic = (char*)calloc(50,sizeof(char));
 				char* s = (char*)calloc(3,sizeof(char));
 				s = "non";
-				scanf("%s", fic);/////c'est là que ca marche pas
+				scanf("%s", fic);
 			    //fic = ENTREE;
 				if (*fic==*s)
 				{
