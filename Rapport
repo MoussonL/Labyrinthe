@@ -1,4 +1,38 @@
 PLAN
+
+Intro
+0. La/Les  structure(s)
+0.1 nos choix techniques
+ 0.2 difficultés rencontrées
+0.3 améliorations possibles
+0.4 erreurs faites et limites
+2.Création Labyrinthe :
+2.1. Traitement fichier//Lucie
+2.1.1 lecture dans un fichier
+2.1.2 Sauvegarde dans un fichier
+2.2. Génération Aléatoire//Fatma
+3.Chemin //Morgane
+3.1 Chemin...
+4. Affichage 
+4.1 avec chemin/sans chemin a toi de voir si tu fais deux parties disctinsctes moe ;)
+5. Main et Makefile
+5.1 Main
+5.1.1
+5.1.2
+6.Exemples d'executions
+6.1 Test en dur
+6.2 Lecture fichier
+6.3 Aleatoire
+6.3.1 PSeudo
+6.3.2 Totalement
+7.?
+Conclu
+
+
+
+
+
+Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 Intro
 Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
