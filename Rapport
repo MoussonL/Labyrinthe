@@ -2,13 +2,26 @@ PLAN
 Intro
 Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
+
 0. La/Les  structure(s)
+0.1 nos choix techniques
+0.2 difficultés rencontrées
+0.3 améliorations possibles
+0.4 erreurs faites et limites
+
+Création Labyrinthe :
 1. Traitement fichier
+
 2. Génération Aléatoire
+
 3. Chemin
+
 4. Affichage 
+
 5. Main
+
 6. Makefile
+
 7.Exemples d'executions
 7.1 Test en dur
 7.2 Lecture fichier
