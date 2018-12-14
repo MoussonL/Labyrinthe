@@ -62,7 +62,7 @@ int main()
 					case 1:	size1 = rand()%100 + 1; 
 						size2 = rand()%100 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m) de votre labyrinthe : \n");
+					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -92,6 +92,9 @@ int main()
 		        break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
-	//////faire free ()pour les malloc de Fatma!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	//Liberer l'espace allouer pour le labyrinthe
+	free(maze.matrix);
+
 	return 0;
 }
