@@ -48,6 +48,7 @@ int MazeValid(Maze m);
 
 //affiche le lab
 void aff(Maze M);
+void display_path(Path path);
 
 //Génération d'un labyrinthe aléatoirement 
 Maze RandMaze1();

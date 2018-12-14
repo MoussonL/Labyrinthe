@@ -93,8 +93,8 @@ Maze RandMaze1(int size1,int size2)
 
 	//Remplire le tableau Tab_pos des positions d'entrée possibles (i,j)={(0,0),...,(0,size-1)}
 	for(i=0;i<maze.Col;i++){
-		p.x = 0;
-		p.y = i;
+		p.X = 0;
+		p.Y = i;
 		Tab_pos[index]=p;
 		index++;
 		
@@ -119,8 +119,8 @@ Maze RandMaze1(int size1,int size2)
 	
 	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(size-1,0),...,(size-1,size-1)}
 	for(i=0;i<maze.Col;i++){
-		p.x = maze.Lin-1;
-		p.y = i;
+		p.X = maze.Lin-1;
+		p.Y = i;
 		Tab_pos[index] = p;
 		index++;
 		
@@ -145,8 +145,8 @@ Maze RandMaze1(int size1,int size2)
 	
 	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(1,0),...,(size-2,0)}
 	for(i=1;i<maze.Lin-1;i++){
-		p.x = i;
-		p.y = 0;
+		p.X = i;
+		p.Y = 0;
 		Tab_pos[index]=p;
 		index++;
 		
@@ -159,8 +159,8 @@ Maze RandMaze1(int size1,int size2)
 	
 	//Ajouter au tableau Tab_pos les positions d'entrée possibles (i,j)={(1,size-1),...,(size-1,size-1)}
 	for(i=1;i<maze.Lin-1;i++){
-		p.x = i;
-		p.y = maze.Col-1;
+		p.X = i;
+		p.Y = maze.Col-1;
 		Tab_pos[index]=p;
 		index++;
 		

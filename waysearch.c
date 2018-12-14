@@ -167,15 +167,8 @@ Path ft_build_path(Maze maze)
 Path way_search(Maze maze)
 {
 	set_distance_max(&maze);
+	maze.Find[0] = maze.In[0];
+	maze.Find[1] = maze.In[1];
 	ft_mapping_maze(maze,0);
 	return(ft_build_path(maze));
-}
-
-void display_path(Path path)
-{
-	printf("distance : %d\n", path.distance);
-	for (int i = 0; i < path.distance + 1; i++)
-	{
-		printf("(%d\t, %d\t) \n ", path.Way[i].X, path.Way[i].Y);
-	}
 }
