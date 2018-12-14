@@ -212,31 +212,10 @@ Maze RandMaze1()
 	
 	//Sortie du labyrinthe
 	//Génération d'une sortie aussi loin possible de l'entrée	
-//	if(Tab_pos[Pos_In].x == 0){
-//		do{
-//			Pos_Out = rand()%Tab_size;
-//		}while(Tab_pos[Pos_Out].x != size1-1);
-//	}
-//	else if (Tab_pos[Pos_In].x == size1-1){
-//		do{
-//			Pos_Out = rand()%Tab_size;
-//		}while(Tab_pos[Pos_Out].x!= 0);
-//	}
-//	else if(Tab_pos[Pos_In].y == 0){
-//		do{
-//			Pos_Out= rand()%Tab_size;
-//		}while(Tab_pos[Pos_Out].y != size1-1);
-//	}else if(Tab_pos[Pos_Out].y == size1-1){
-//		do{
-//			Pos_Out= rand()%Tab_size;
-//		}while(Tab_pos[Pos_Out].y != 0);
-//	}
 
-	
-//	maze.Out[0] = Tab_pos[Pos_Out].x;
-//	maze.Out[1] = Tab_pos[Pos_Out].y;
-	
+
 	maze.Find[0] = maze.In[0];
 	maze.Find[1] = maze.In[1];
+	
 	return maze;
 }
