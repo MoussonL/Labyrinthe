@@ -5,7 +5,7 @@ Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
 0. La/Les  structure(s)
 0.1 nos choix techniques
-
+ 
 0.2 difficultés rencontrées
 
 0.3 améliorations possibles
@@ -27,8 +27,22 @@ Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
 5. Main et Makefile
 5.1 Main
+5.1.1
+
+
 
 5.2 Makefile
+5.2.1 Pourquoi en faire un
+Le principe du Makefile est de découper son code en plusieurs morceaux distincts de façon à le rendre plus compréhensible.
+C'est également plus facile de travailler en groupe de la sorte. 
+Au vu de l'envergure du projet, et vu le fait que nous étions au nombre de quatre, il était impératif d'en faire un. 
+De sorte, il y a au total un main.c, qui est le main général. Un fichier .h qui est inclus dans tous les autres fichiers .c.  
+Et sept fichiers.c distincts, validite.c, fichiers.c, affichage.c, mazerand1.c, mazerand2.c, mazepile.c et waysearch.c.
+Tous ces fichiers sont donc liés par le Makefile ce qui permet de distinguer leur utilité et de les modifier plus facilement au besoin.
+
+5.2.2 La mise en pratique et les choix techniques
+J'ai décidé en faisant le Makefile, de ne pas alourdir l'écriture avec les différentes commandes possibles.
+J'ai simplement rajouté un "clean" pour supprimer les fichiers .o générés lors de la compilation. 
 
 
 
