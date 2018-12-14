@@ -1,25 +1,20 @@
 PLAN
 Intro
+Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
-1.Choix techniques/Difficultés rencontrées
-1.1 Lucie : fichiers main makefile
-1.2 Fatma : Génération aléatoire
-1.3 Moe
-1.4 Morgane
-
-2.erreurs faites/limites des algos
-2.1 Lucie
-2.2 Fatma
-2.3 Moe
-2.4Morgane
-
-
-3.Exemples d'executions
-3.1 Test en dur
-3.2 Lecture fichier
-3.3 Aleatoire
-3.3.1 PSeudo
-3.3.2 Totalement
+0. La/Les  structure(s)
+1. Traitement fichier
+2. Génération Aléatoire
+3. Chemin
+4. Affichage 
+5. Main
+6. Makefile
+7.Exemples d'executions
+7.1 Test en dur
+7.2 Lecture fichier
+7.3 Aleatoire
+7.3.1 PSeudo
+7.3.2 Totalement
 
 
 .
