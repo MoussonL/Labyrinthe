@@ -4,6 +4,10 @@ int main()
 {
 	int val = 0;
 	int decision=0;
+	int size1;
+	int size1;
+	int choice;
+	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
 	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3\n");
 	scanf("%d",&val);
@@ -51,8 +55,20 @@ int main()
 		break;
 		case 2:	//labyrinthe totalement aléatoire
 		
-		        printf("le labyrinthe va etre généré aléatoirement\n");
-				Maze m_alea = MazeRand1();
+		       		printf("le labyrinthe va etre généré aléatoirement\n");
+				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+				scanf("%d",&choice);
+				switch(choice){
+					case 1:	size1 = rand()%100 + 1; 
+						size2 = rand()%100 + 1; 
+					break;
+					case 2: printf("Donner la taille (n x m) de votre labyrinthe : \n");
+						scanf("%d",&size1);
+						scanf("%d",&size2);
+					break;
+				default: break;
+				}
+				Maze m_alea = MazeRand1(size1,size2);
 				aff(m_alea);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
