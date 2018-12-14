@@ -5,24 +5,29 @@ Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
 0. La/Les  structure(s)
 0.1 nos choix techniques
+
 0.2 difficultés rencontrées
+
 0.3 améliorations possibles
 0.4 erreurs faites et limites
 
-Création Labyrinthe :
-1. Traitement fichier
+2.Création Labyrinthe :
 
-2. Génération Aléatoire
+2.1. Traitement fichier//Lucie
+2.1.1 lecture dans un fichier
+2.1.2 Sauvegarde dans un fichier
 
-Chemin
-3. Chemin
+2.2. Génération Aléatoire//Fatma
 
-Affichage
+3.Chemin //Morgane
+3.1 Chemin...
+
 4. Affichage 
 4.1 avec chemin/sans chemin a toi de voir si tu fais deux parties disctinsctes moe ;)
 
 5. Main et Makefile
 5.1 Main
+
 5.2 Makefile
 
 
