@@ -1,17 +1,12 @@
 #include "labyrinthe.h"
 
-//Creation du labyrinthe
 Maze RandMaze1()
 {
-	//Declarer une variable pour le labyrinthe
-	Maze maze;
+	Maze maze; //Déclarer une variable de type Maze (labyrinthe)
 	Position p;
 	Position *Tab_pos; //Tableau des positions possible pour le choix de Entrée/sortie du labyrinthe
 	int i=0;
 	int j=0;
-	int choice;
-	int size1;
-	int size2;
 	int index=0;
 
        //Generer la taille du labyrinthe random
