@@ -14,13 +14,18 @@ Création Labyrinthe :
 
 2. Génération Aléatoire
 
+Chemin
 3. Chemin
 
+Affichage
 4. Affichage 
+4.1 avec chemin/sans chemin a toi de voir si tu fais deux parties disctinsctes moe ;)
 
-5. Main
+5. Main et Makefile
+5.1 Main
+5.2 Makefile
 
-6. Makefile
+
 
 7.Exemples d'executions
 7.1 Test en dur
