@@ -1,6 +1,6 @@
 #include "labyrinthe.h"
 
-Maze RandMaze1()
+Maze RandMaze1(int size1,int size2)
 {
 	Maze maze; //Déclarer une variable de type Maze (labyrinthe)
 	Position p;
@@ -8,20 +8,6 @@ Maze RandMaze1()
 	int i=0;
 	int j=0;
 	int index=0;
-
-       //Generer la taille du labyrinthe random
-	printf("Chosis une option: \n1-Taille Random\n2-Taille Personalise\n");
-	scanf("%d",&choice);
-	switch(choice){
-		case 1:	size1 = rand()%100 + 1; 
-				size2 = rand()%100 + 1; 
-				break;
-		case 2: printf("Donner la taille (n,m) de votre labyrinthe : \n");
-				scanf("%d",&size1);
-				scanf("%d",&size2);
-				break;
-		default: break;
-	}
 
 	//Initialiser la taille de la matrice
 	maze.Lin = size1;
@@ -206,8 +192,6 @@ Maze RandMaze1()
 	maze.Out[1] = Pos_OutY;
 	
 	//Sortie du labyrinthe
-	//Génération d'une sortie aussi loin possible de l'entrée	
-
 
 	maze.Find[0] = maze.In[0];
 	maze.Find[1] = maze.In[1];
