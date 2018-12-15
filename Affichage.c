@@ -6,8 +6,8 @@ int chemin(Maze M, Path path, int i, int j)
 {
 	int k;
 	int n=0;
-	for (k = 1; k < path.distance; k++)
-	{
+	for (k = 1; k < path.distance; k++)			// Le curseur est de 1 a path.distance car k = 0 est l'entrée 
+	{							// et k = path.distance+1 est la sortie 
 		if (path.Way[k].X == i && path.Way[k].Y == j)
 		{
 			n=1;
@@ -52,7 +52,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 		}
 		else
 		{
-			if ((M.Matrix[0][i-1]/8)%2 == 0)//Si il n'y a pas dÃ©jÃ  un mur en bas prÃ©cedement, 
+			if ((M.Matrix[0][i-1]/8)%2 == 0)//Si il n'y a pas déjà un mur en bas précedement, 
 				{                           //il faut marquer l'intersection de deux case
 					printf("+   ");
 				}
@@ -82,16 +82,16 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 				{ 
 					switch(che)
 					{
-						case 0:
+						case 0: 			//Le cas 0 c'est si il n'y a rien
 							printf("   |");
 							break;
-						case 1:
+						case 1:				//Le cas 1 c'est si le chemin passe par cette case
 							printf(" à¯³ |");
 							break;
-						case 2:
+						case 2:				//Le cas 2 c'est si l'entrée est sur cette case
 							printf(" E |");
 							break;
-						case 3:
+						case 3:				//Le cas 3 c'est si la sortie est sur cette case
 							printf(" S |");
 							break;
 					}
