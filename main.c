@@ -9,7 +9,7 @@ int main()
 	int choice;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
-	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3\n");
+	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3, un labyrinthe avec piles tapez 4\n");
 	scanf("%d",&val);
 	Maze m;
 	Path path;
