@@ -29,7 +29,7 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 	int way1,way2;
 	if(path.distance == -1)
 	{
-		printf("Ce Labyrinthe ne possÃ¨de pas de chemin entre l'entrÃ©e et la sortie\n");
+		printf("Ce Labyrinthe ne possède pas de chemin entre l'entrée et la sortie\n");
 	}
 	/*for (i = 0; i < M.Lin; i++)
 	{
@@ -88,7 +88,7 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("   |");
 							break;
 						case 1:				//Le cas 1 c'est si le chemin passe par cette case
-							printf(" à´– |");
+							printf(" வ |");
 							break;
 						case 2:				//Le cas 2 c'est si l'entrÃ©e est sur cette case
 							printf(" E |");
@@ -106,7 +106,7 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("    |");
 							break;
 						case 1:
-							printf("  à´– |");
+							printf("  வ |");
 							break;
 						case 2:
 							printf("  E |");
@@ -128,7 +128,7 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("    ");
 							break;
 						case 1:
-							printf("  à´– ");
+							printf("  வ ");
 							break;
 						case 2:
 							printf("  E ");
@@ -147,7 +147,7 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("   ");
 							break;
 						case 1:
-							printf(" à´– ");
+							printf(" வ ");
 							break;
 						case 2:
 							printf(" E ");
