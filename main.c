@@ -41,7 +41,7 @@ int main()
 					{
 						printf("lab valide\n");
 						path = way_search(m_fic);
-						aff(m_fic);
+						aff(m_fic,path);
 					}
 					else
 					{
