@@ -16,7 +16,7 @@ int main()
 	switch(val)
 	{
 		case 1:	//cas fichier
-				printf("donnez le nom de votre fichier, sinon tapez non et ce sera un fichier par défaut\n");
+				printf("donnez le nom de votre fichier avec l'extension .txt, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = (char*)calloc(50,sizeof(char));
 				char* s = (char*)calloc(3,sizeof(char));
 				s = "non";
