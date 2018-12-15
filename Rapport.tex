@@ -67,6 +67,8 @@ Nous avons choisi également de créer une fonction saveMaze, qui prend en param
 Cette fonction est programmé comme suit : elle ouvre un nouveau fichier dont le nom est donné en paramètre, le nom a été demandé à l'utilisateur. Elle teste s'il s'ouvre correctement. Si la valeur de retour d'ouverture est différente de NULL, elle écrit les différentes caractéristiques du labyrinthe dans le fichier sous le format donné dans l'énoncé. Puis elle ferme le fichier courant. Cette fonction ne retourne rien.
 Notons que parmi les améliorations possibles, nous aurions pu sauvegarder le fichier sans le chemin le plus court, en plus de saugarder celui où il est déjà dessiné.
 
+Il n'y a pas eu de grosses difficultés de rencontrées durant le traitement des fichiers.
+
 Les fonctions vérifiant la validité d'un labyrinthe sont placé dans le fichier Validity.c, comportant les fonctions itob et MazeValid expliquées ci dessous.
 
 2.2.3 Validité et cohérence du labyrinthe
@@ -84,7 +86,15 @@ Ensuite, Elle teste si les murs correspondent : Si deux cases adjacentes ont bie
 
 5. Main et Makefile
 5.1 Main
-5.1.1 
+5.1.1 Choix
+Nous avons choisi d'utiliser un switch pour alléger le programme déjà conséquent du main.c. De sorte, une seule vealeur est testée, et cela évite de trop nombreux tests. Nous déclarons les variables locales à la fonction au début. Parmi celles ci la déclaration d'une chaine de caractere pour allouer le nom du fichier de sauvegarde, et l'initialisation du srand pour la génération aléatoire.
+Puis nous demandons à l'utilisateur de choisir parmi les quatre génération possible de labyrinthe :
+Cas 1 : D'après un fichier donné ou par défaut.
+Le fichier par défaut est celui de l'énoncé du projet qui a été joint au mot ENTREE avec un #define de sorte que l'on puisse changer ce fichier plus facilement en ne le modifiant que dans le Maze.h.
+Cas 2 : 
+
+
+
 
 
 
