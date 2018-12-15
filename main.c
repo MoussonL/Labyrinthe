@@ -121,6 +121,7 @@ int main()
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
 		        	break;
+			case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	
