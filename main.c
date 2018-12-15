@@ -45,7 +45,7 @@ int main()
 					{
 						printf("labyrinthe non valide\n");
 					}
-				
+				}
 		break;
 		case 2:	//labyrinthe totalement aléatoire
 		
@@ -153,6 +153,7 @@ int main()
 				
 				break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
+				break;
 	}
 
 
