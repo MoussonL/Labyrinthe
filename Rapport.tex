@@ -39,7 +39,7 @@ Intro
 Choix techniques /Difficultés rencontrées/erreurs faites/limites des algos
 
 
-0. La/Les  structure(s)
+1. La/Les  structure(s)
 0.1 nos choix techniques
   Choix de plusieurs structures/pourquoi ?
   
@@ -51,11 +51,30 @@ Tout mettre dans la meme struct
 
 2.Création Labyrinthe :
 
-2.1. Traitement fichier//Lucie
-2.1.1 lecture dans un fichier
-2.1.2 Sauvegarde dans un fichier
+2.1. Génération Aléatoire//Fatma
 
-2.2. Génération Aléatoire//Fatma
+2.2. Traitement fichier
+
+Nous avons choisi de placer les fonctions traitant les fichiers dans un fichier File.c, qui comporte donc les fonctions lectFic et saveMaze expliquées ci dessous.
+
+2.2.1 lecture dans un fichier
+Pour la fonction génération d'un labyrinthe à partir d'un fichier, qui prend en paramètre le nom du fichier, nous testons l'ouverture du fichier donné en paramètre. L'utilisateur a le choix entre un de ses fichiers, et un fichier par défaut (celui de l'énoncé). Si le fichier donné ne s'ouvre pas correctement (valeur de retour égale à NULL), nous affichons l'erreur et renvoyons un labyrithe non valide. De sorte que dans le main, un seul test suffise à déterminer s'il y a un problème d'ouverture.
+Si la valeur retournée est différente de NULL, nous scannons les valeurs de la première ligne puis, après avoir alloué dynamiquement un tableau à deux dimensions, nous faisons une double boucle, à partir des valeurs ligne et colonne récupérées précédement. Calloc est préféré à Malloc pour l'allocation, car il initialise l'ensemble à zéro. Il ne reste plus qu'à fermer le fichier, puis à retourner la structure Maze, remplie par les valeurs du fichiers.
+
+2.2.2 Sauvegarde dans un fichier
+ 
+Nous avons choisi également de créer une fonction saveMaze, qui prend en paramètre un nom de fichier (avec extension .txt) et la structure du labyrinthe venant d'etre généré. Que celui ci soit aléatoire, pseudo aléatoire ou formé avec les Piles, cette fonction permet à l'utilisateur d'enregistrer s'il le souhaite le labyrinthe venant d'etre généré, ainsi que le plus court chemin trouvé. De cette facon, l'utilisateur peut sauvegarder les résultats qui l'intéressent.
+Cette fonction est programmé comme suit : elle ouvre un nouveau fichier dont le nom est donné en paramètre, le nom a été demandé à l'utilisateur. Elle teste s'il s'ouvre correctement. Si la valeur de retour d'ouverture est différente de NULL, elle écrit les différentes caractéristiques du labyrinthe dans le fichier sous le format donné dans l'énoncé. Puis elle ferme le fichier courant. Cette fonction ne retourne rien.
+Notons que parmi les améliorations possibles, nous aurions pu sauvegarder le fichier sans le chemin le plus court, en plus de saugarder celui où il est déjà dessiné.
+
+Les fonctions vérifiant la validité d'un labyrinthe sont placé dans le fichier Validity.c, comportant les fonctions itob et MazeValid expliquées ci dessous.
+
+2.2.3 Validité et cohérence du labyrinthe
+
+Une des fonctions indispensable était bien sur la fonction testant si les valeurs du labyrinthe étaient cohérentes. Qu'il soit généré par un fichier ou aléatoirement. Meme si le cas d'erreur le plus probable reste celui du fichier, les fonctions aléatoires étant écrite de sorte à éviter ce type d'erreur, nosu testons tous les labyrinthes générés par cette fonction. Cette fonction 
+
+
+
 
 3.Chemin //Morgane
 3.1 Chemin...
