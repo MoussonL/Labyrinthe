@@ -1,5 +1,5 @@
 lab : validite.o fichiers.o Affichage.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
-	gcc -o lab validite.o fichiers.o Affichage.o MazeRand1.o MazeRand2.o MaePile.o waysearch.o main.o
+	gcc -o lab validite.o fichiers.o Affichage.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
 
 main.o : main.c labyrinthe.h
 	gcc -c -O3 main.c 
