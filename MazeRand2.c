@@ -202,12 +202,12 @@ Maze RandMaze2(int size1,int size2)
 	maze.In[1]=Tab_pos[Pos_In].Y;
 	
 	//Génération d'une sortie aussi loin possible de l'entrée	
-	if(Tab_pos[Pos_In].x == 0){
+	if(Tab_pos[Pos_In].X == 0){
 		do{
 			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].X != Lin-1);
+		}while(Tab_pos[Pos_Out].X != maze.Lin-1);
 	}
-	else if (Tab_pos[Pos_In].X == Lin-1){
+	else if (Tab_pos[Pos_In].X == maze.Lin-1){
 		do{
 			Pos_Out = rand()%Tab_size;
 		}while(Tab_pos[Pos_Out].X!= 0);
@@ -215,9 +215,9 @@ Maze RandMaze2(int size1,int size2)
 	else if(Tab_pos[Pos_In].Y == 0){
 		do{
 			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].Y != Col-1);
+		}while(Tab_pos[Pos_Out].Y != maze.Col-1);
 	}
-	else if(Tab_pos[Pos_Out].Y == Col-1){
+	else if(Tab_pos[Pos_Out].Y == maze.Col-1){
 		do{
 			Pos_Out= rand()%Tab_size;
 		}while(Tab_pos[Pos_Out].Y != 0);
