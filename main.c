@@ -5,7 +5,7 @@ int main()
 	int val = 0;
 	int decision=0;
 	int size1;
-	int size1;
+	int size2;
 	int choice;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
