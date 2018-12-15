@@ -37,7 +37,7 @@ Maze lectFic(char * fic)
 
 
 //sauvegarde le labyrinthe m dans le fichier fic_alea
-char* saveMaze(Maze m, char * fic_alea)
+void saveMaze(Maze m, char * fic_alea)
 {
 	FILE*flot;
 	if((flot = fopen(fic_alea,"w"))==NULL)
@@ -56,5 +56,5 @@ char* saveMaze(Maze m, char * fic_alea)
 		fprintf(flot,"\n");
 	}
 	fclose(flot);
-	return fic_alea;
+	
 }
