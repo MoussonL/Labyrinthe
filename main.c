@@ -41,7 +41,6 @@ int main()
 					{
 						printf("lab valide\n");
 						path = way_search(m_fic);
-						display_path(path);
 						aff(m_fic);
 					}
 					else
@@ -72,7 +71,8 @@ int main()
 				default: break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
-				aff(m_alea);
+				path = way_search(m_fic);
+				aff(m_alea,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
