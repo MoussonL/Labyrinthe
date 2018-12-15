@@ -60,8 +60,6 @@ Maze MazePile(int sise1, int size2){
 	int i=0;
 	int j=0;
 	int choice;
-	int size1;
-	int size2;
 	int index=0;
 
 	//Initialiser la taille de la matrice
