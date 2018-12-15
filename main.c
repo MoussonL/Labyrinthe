@@ -39,7 +39,7 @@ int main()
 					{
 						printf("labyrinthe valide\n");
 						path = way_search(m_fic);
-						aff(m_fic,path);
+						dis(m_fic,path);
 					}
 					else
 					{
@@ -64,7 +64,7 @@ int main()
 				Maze m_alea = MazeRand1(size1,size2);
 				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
-				aff(m_alea, path);
+				dis(m_alea, path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
@@ -102,7 +102,7 @@ int main()
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValide(m_alea2)){
 				path = way_search(m_alea2);
-				aff(m_alea2,path);
+				dis(m_alea2,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
@@ -136,7 +136,7 @@ int main()
 			    Maze m_pile = MazePile(size1,size2);
 			if(MazeValide(m_pile)){
 			    path = way_search(m_pile);
-			    aff(m_pile, path);
+			    dis(m_pile, path);
 			    printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
