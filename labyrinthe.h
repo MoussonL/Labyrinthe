@@ -47,8 +47,8 @@ int* itob(int a, int * T);
 int MazeValid(Maze m);
 
 //affiche le lab
-int chemin(Maze M, Path path, int i, int j)
-void aff(Maze M);
+int chemin(Maze M, Path path, int i, int j);
+void aff(Maze M,Path path);
 void display_path(Path path);
 
 //Génération d'un labyrinthe aléatoirement 
