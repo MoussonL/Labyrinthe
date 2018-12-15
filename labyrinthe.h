@@ -28,7 +28,7 @@ typedef struct Position {
 //Definir une structure Node qui sert à stocker les cases qui n'ont pas été déjà visitées dans une pile (pour la fonction MazePile()) 
 typedef struct Node {
     int Data[4]; //Contient la position de la case courante et la position de la case précédente
-    Node* Next;//Pointeur qui sert à pointer sur un autre noeud (liaison entre les noeuds)
+    struct Node* Next;//Pointeur qui sert à pointer sur un autre noeud (liaison entre les noeuds)
 }Node;
  
 
