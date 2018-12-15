@@ -88,6 +88,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
+				free(m_alea.Matrix);
 				break;
 		case 3: //labyrinthe pseudo aléatoire
 	        	printf("le labyrinthe va etre généré pseudo aléatoirement\n");
@@ -121,6 +122,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
+				free(m_alea2.Matrix);
 		        	break;
 		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
 			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
@@ -154,6 +156,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
+				free(m_pile.Matrix);
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	
