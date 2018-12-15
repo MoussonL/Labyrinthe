@@ -198,34 +198,34 @@ Maze RandMaze2(int size1,int size2)
 	int Pos_Out;
 	
 	//Affecter la valeur de Pos_In à In[2]
-	maze.In[0]=Tab_pos[Pos_In].x;
-	maze.In[1]=Tab_pos[Pos_In].y;
+	maze.In[0]=Tab_pos[Pos_In].X;
+	maze.In[1]=Tab_pos[Pos_In].Y;
 	
 	//Génération d'une sortie aussi loin possible de l'entrée	
 	if(Tab_pos[Pos_In].x == 0){
 		do{
 			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].x != Lin-1);
+		}while(Tab_pos[Pos_Out].X != Lin-1);
 	}
-	else if (Tab_pos[Pos_In].x == Lin-1){
+	else if (Tab_pos[Pos_In].X == Lin-1){
 		do{
 			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].x!= 0);
+		}while(Tab_pos[Pos_Out].X!= 0);
 	}
-	else if(Tab_pos[Pos_In].y == 0){
+	else if(Tab_pos[Pos_In].Y == 0){
 		do{
 			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].y != Col-1);
+		}while(Tab_pos[Pos_Out].Y != Col-1);
 	}
-	else if(Tab_pos[Pos_Out].y == Col-1){
+	else if(Tab_pos[Pos_Out].Y == Col-1){
 		do{
 			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].y != 0);
+		}while(Tab_pos[Pos_Out].Y != 0);
 	}
 	
 	//Affecter la valeur de la sortie à Out[2]
-	maze.Out[0] = Tab_pos[Pos_Out].x;
-	maze.Out[1] = Tab_pos[Pos_Out].y;
+	maze.Out[0] = Tab_pos[Pos_Out].X;
+	maze.Out[1] = Tab_pos[Pos_Out].Y;
 
 	//Affecter la valeur de l'entrée à Find[2] (Positioner le chercheur du chemin à l'entrée
 	maze.Find[0] = maze.In[0];
