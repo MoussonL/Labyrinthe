@@ -205,9 +205,9 @@ Maze RandMaze2(int size1,int size2)
 	if(Tab_pos[Pos_In].x == 0){
 		do{
 			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].x != size1-1);
+		}while(Tab_pos[Pos_Out].x != Lin-1);
 	}
-	else if (Tab_pos[Pos_In].x == size1-1){
+	else if (Tab_pos[Pos_In].x == Lin-1){
 		do{
 			Pos_Out = rand()%Tab_size;
 		}while(Tab_pos[Pos_Out].x!= 0);
@@ -215,9 +215,9 @@ Maze RandMaze2(int size1,int size2)
 	else if(Tab_pos[Pos_In].y == 0){
 		do{
 			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].y != size1-1);
+		}while(Tab_pos[Pos_Out].y != Col-1);
 	}
-	else if(Tab_pos[Pos_Out].y == size1-1){
+	else if(Tab_pos[Pos_Out].y == Col-1){
 		do{
 			Pos_Out= rand()%Tab_size;
 		}while(Tab_pos[Pos_Out].y != 0);
