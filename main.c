@@ -41,7 +41,7 @@ int main()
 					{
 						printf("lab valide\n");
 						path = way_search(m_fic);
-						aff(m_fic);
+						aff(m_fic,path);
 					}
 					else
 					{
@@ -103,15 +103,15 @@ int main()
 					break;
 				default: break;
 				}
-				Maze m_alea = MazeRand2(size1,size2);
-				path = way_search(m_alea);
-				aff(m_alea,path);
+				Maze m_alea2 = MazeRand2(size1,size2);
+				path = way_search(m_alea2);
+				aff(m_alea2,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
 					scanf("%s",fic_save);
-					saveMaze(m_alea,fic_save);//sauvegarde le fichier généré sous le nom donné
+					saveMaze(m_alea2,fic_save);//sauvegarde le fichier généré sous le nom donné
 				}
 				else if(decision==2)
 				{
@@ -123,7 +123,7 @@ int main()
 				}
 		        	break;
 		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
-			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles")
+			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
 			    printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
@@ -139,6 +139,21 @@ int main()
 			    Maze m_pile = MazePile(size1,size2);
 			    path = way_search(m_pile);
 			    aff(m_pile, path);
+			    printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
+				scanf("%d",&decision);
+				if(decision==1)
+				{
+					scanf("%s",fic_save);
+					saveMaze(m_pile,fic_save);//sauvegarde le fichier généré sous le nom donné
+				}
+				else if(decision==2)
+				{
+					printf("labyrinthe non sauvegardé\n");
+				}
+				else
+				{
+					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+				}
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	
