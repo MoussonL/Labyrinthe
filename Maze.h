@@ -45,7 +45,7 @@ unsigned short  ** MatrixVisited; //Definir une matrice qui sert à verifier si 
 Maze lectFic(char * fic);
 
 //sauvegarde le labyrinthe m dans le fichier fic_alea
-char* saveMaze(Maze m, char * fic_alea);
+void saveMaze(Maze m, char * fic_alea);
 
 //Prends un entier et un tableau de 16 éléments et remplit le tableau avec sa base 2 tab[0]=bit poids faible
 int* itob(int a, int * T);
