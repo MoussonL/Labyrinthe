@@ -93,7 +93,7 @@ int main()
 					case 1:	size1 = rand()%34 + 1; 
 						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -103,7 +103,7 @@ int main()
 				if(MazeValid(m_alea2)){
 				path = way_search(m_alea2);
 				dis(m_alea2,path);
-				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+				printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
@@ -116,19 +116,19 @@ int main()
 				}
 				else
 				{
-					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
 		        	break;
 		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
 			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
-			    printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = rand()%34 + 1; 
 						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -137,7 +137,7 @@ int main()
 			if(MazeValid(m_pile)){
 			    path = way_search(m_pile);
 			    dis(m_pile, path);
-			    printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
+			    printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
@@ -150,7 +150,7 @@ int main()
 				}
 				else
 				{
-					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 			}else{printf("labyrinthe non valide\n");}
 				break;
