@@ -82,7 +82,7 @@ int main()
 				}
 				}else
 				{
-				    printf("erreur validité");
+				    printf("labyrinthe non valide\n");
 				}
 				break;
 		case 3: //labyrinthe pseudo aléatoire
@@ -100,6 +100,7 @@ int main()
 				default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
+				if(MazeValide(m_alea2)){
 				path = way_search(m_alea2);
 				aff(m_alea2,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
@@ -117,7 +118,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
-				
+				}else{printf("labyrinthe non valide\n");}
 		        	break;
 		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
 			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
@@ -133,6 +134,7 @@ int main()
 					break;
 				}
 			    Maze m_pile = MazePile(size1,size2);
+			if(MazeValide(m_pile)){
 			    path = way_search(m_pile);
 			    aff(m_pile, path);
 			    printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
@@ -150,7 +152,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
-				
+			}else{printf("labyrinthe non valide\n");}
 				break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 				break;
