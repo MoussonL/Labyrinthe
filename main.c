@@ -158,7 +158,7 @@ int main()
 	}
 	
 	//Liberer l'espace allouer pour le labyrinthe
-	free(maze.Matrix);
+	free(m.Matrix);
 
 	return 0;
 }
