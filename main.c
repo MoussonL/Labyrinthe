@@ -1,4 +1,4 @@
-#include "labyrinthe.h"
+#include "Maze.h"
 
 int main()
 {
