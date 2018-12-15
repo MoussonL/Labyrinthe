@@ -61,10 +61,10 @@ int main()
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%100 + 1; 
-						size2 = rand()%100 + 1; 
+					case 1:	size1 = rand()%34 + 1; 
+						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -100,10 +100,10 @@ int main()
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%100 + 1; 
-						size2 = rand()%100 + 1; 
+					case 1:	size1 = rand()%34 + 1; 
+						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -134,10 +134,10 @@ int main()
 			    printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%100 + 1; 
-						size2 = rand()%100 + 1; 
+					case 1:	size1 = rand()%34 + 1; 
+						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
