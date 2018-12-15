@@ -19,7 +19,7 @@ MazePile.o : MazePile.c Maze.h
 Waysearch.o : Waysearch.c Maze.h
 	gcc -c Waysearch.c
 	
-Validity.o : Validite.c Maze.h
+Validity.o : Validity.c Maze.h
 	gcc -c Validity.c
 
 File.o : File.c Maze.h
