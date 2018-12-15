@@ -25,13 +25,20 @@ typedef struct Position {
    int Y;
 } Position;
 
+//Definir une structure Node qui sert à stocker les cases qui n'ont pas été déjà visitées dans une pile (pour la fonction MazePile()) 
+typedef struct Node {
+    int Data[4]; //Contient la position de la case courante et la position de la case précédente
+    Node* Next;//Pointeur qui sert à pointer sur un autre noeud (liaison entre les noeuds)
+}Node;
+ 
+
 typedef struct 
 {
 	Position * Way; //un tableau de position
 	int distance;
 }Path;
 
-
+unsigned short  ** MatrixVisited; //Definir une matrice qui sert à verifier si une case de Matrix a été visité ou pas (pour la fonction MazePile())
 
 
 //Lecture dans un fichier txt
@@ -54,6 +61,15 @@ void display_path(Path path);
 //Génération d'un labyrinthe aléatoirement 
 Maze RandMaze1(int sise1, int size2);
 
+//Génération d'un labyrinthe aléatoirement et l'entrée/sortie sur les côtés
+Maze RandMaze2(int sise1, int size2);
+
+//fonctions nécessaires à la recherche de chemin:
+Node* Push(Node* Head,int *Data_In);
+Node* Pop(Node *Head,int *Elt);
+int Empty(Node* Head);
+//Génération d'un labyrinthe pseudo-aléatoirement (cases accécibles, entrée-sortie sur les côtés)
+Maze RandPile(int sise1, int size2);
 
 //fonctions nécessaires à la recherche de chemin:
 void display_lab(Maze* maze);
