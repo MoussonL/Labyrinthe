@@ -86,7 +86,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("   |");
 							break;
 						case 1:				//Le cas 1 c'est si le chemin passe par cette case
-							printf(" à¯³ |");
+							printf(" வ |");
 							break;
 						case 2:				//Le cas 2 c'est si l'entrée est sur cette case
 							printf(" E |");
@@ -104,7 +104,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("    |");
 							break;
 						case 1:
-							printf("  à¯³ |");
+							printf("  வ |");
 							break;
 						case 2:
 							printf("  E |");
@@ -126,7 +126,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("    ");
 							break;
 						case 1:
-							printf("  à¯³ ");
+							printf("  வ ");
 							break;
 						case 2:
 							printf("  E ");
@@ -145,7 +145,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 							printf("   ");
 							break;
 						case 1:
-							printf(" à¯³ ");
+							printf(" வ ");
 							break;
 						case 2:
 							printf(" E ");
