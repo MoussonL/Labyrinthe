@@ -1,3 +1,4 @@
+
 #include "labyrinthe.h"
 
 //Prends un entier et un tableau de 16 éléments et remplit le tableau avec sa base 2 tab[0]=bit poids faible
@@ -41,7 +42,7 @@ int MazeValid(Maze m)
 	{
 		if((m.Out[0]<0)||(m.Out[0]>m.Col-1)||(m.Out[1]<0)||(m.Out[1]>m.Lin-1))
 		{
-			printf("index entree/sortie faux : erreur !!\n");
+			printf("index entree/sortie faux : erreur %d %d entree %d %d sortie !!\n", m.In[0], m.In[1], M.Out[0], m.Out[1]);
 			return 0;
 		}
 	}
