@@ -1,5 +1,5 @@
-#ifndef LABYRINTHE_H
-#define LABYRINTHE_H
+#ifndef MAZE_H
+#define MAZE_H
 
 #include <stdio.h>
 #include <stdlib.h>
