@@ -1,4 +1,4 @@
-#include "labyrinthe.h"
+#include "Maze.h"
 
 //Definir la fonction Push qui insert un élément dans la pile
 Node* Push(Node* Head,int *Data_In){
