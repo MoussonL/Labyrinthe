@@ -1,5 +1,5 @@
 
-#include "labyrinthe.h"
+#include "Maze.h"
 
 //Prends un entier et un tableau de 16 éléments et remplit le tableau avec sa base 2 tab[0]=bit poids faible
 int* itob(int a, int * T)
