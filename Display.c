@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "Maze.h"
 
 int way(Maze M, Path path, int i, int j)
