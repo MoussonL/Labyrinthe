@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "labyrinthe.h"
 
-int chemin(Maze M, Path path, int i, int j)
+int way(Maze M, Path path, int i, int j)
 {
 	int k;
 	int n=0;
-	for (k = 1; k < path.distance; k++)			// Le curseur est de 1 a path.distance car k = 0 est l'entrée 
+	for (k = 1; k < path.distance; k++)			// Le curseur est de 1 a path.distance car k = 0 est l'entrÃ©e 
 	{							// et k = path.distance+1 est la sortie 
 		if (path.Way[k].X == i && path.Way[k].Y == j)
 		{
@@ -24,17 +24,20 @@ int chemin(Maze M, Path path, int i, int j)
 	return n;
 }
 
-void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1] 
+void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1] 
 {
 	int i,j,k;
-	int chem,che;
-
+	int way1,way2;
+	if(path.distance == -1)
+	{
+		printf("Ce Labyrinthe ne possÃ¨de pas de chemin entre l'entrÃ©e et la sortie\n");
+	}
 	/*for (i = 0; i < M.Lin; i++)
 	{
 		for (j = 0; j < M.Col; j++)
 		{
-			chem =chemin(M,path,i,j); 
-			printf("%d  ",chem);
+			way2 =way(M,path,i,j); 
+			printf("%d  ",way2);
 		}
 		printf("\n");	}*/
 	for ( i = 0; i < M.Col ; i++) //Premier mur du haut
@@ -52,7 +55,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 		}
 		else
 		{
-			if ((M.Matrix[0][i-1]/8)%2 == 0)//Si il n'y a pas déjà un mur en bas précedement, 
+			if ((M.Matrix[0][i-1]/8)%2 == 0)//Si il n'y a pas dÃ©jÃ  un mur en bas prÃ©cedement, 
 				{                           //il faut marquer l'intersection de deux case
 					printf("+   ");
 				}
@@ -68,7 +71,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 	{
 		for (j = 0; j < M.Col; j++)
 		{
-			che = chemin(M,path,i,j);
+			way1 = way(M,path,i,j);
 			if(M.Matrix[i][j]%2 == 1)//Affiche le mur de gauche
 			{
 				if(M.Matrix[i][j-1]/4%2 == 0)
@@ -80,15 +83,15 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 			{
 				if (M.Matrix[i][j]%2 == 1)
 				{ 
-					switch(che)
+					switch(way1)
 					{
 						case 0: 			//Le cas 0 c'est si il n'y a rien
 							printf("   |");
 							break;
 						case 1:				//Le cas 1 c'est si le chemin passe par cette case
-							printf(" ഖ |");
+							printf(" à´– |");
 							break;
-						case 2:				//Le cas 2 c'est si l'entrée est sur cette case
+						case 2:				//Le cas 2 c'est si l'entrÃ©e est sur cette case
 							printf(" E |");
 							break;
 						case 3:				//Le cas 3 c'est si la sortie est sur cette case
@@ -98,13 +101,13 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 				}
 				else
 				{
-					switch(che)
+					switch(way1)
 					{
 						case 0:
 							printf("    |");
 							break;
 						case 1:
-							printf("  ഖ |");
+							printf("  à´– |");
 							break;
 						case 2:
 							printf("  E |");
@@ -116,17 +119,17 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 					}
 				} 
 			}
-			else							//Mur ni Ãƒ  droite ni Ãƒ  gauche
+			else							//Mur ni ÃƒÆ’  droite ni ÃƒÆ’  gauche
 			{	
 				if(M.Matrix[i][j]%2 == 0 && (M.Matrix[i][j]/4)%2 == 0)	
 				{
-					switch(che)
+					switch(way1)
 					{
 						case 0:
 							printf("    ");
 							break;
 						case 1:
-							printf("  ഖ ");
+							printf("  à´– ");
 							break;
 						case 2:
 							printf("  E ");
@@ -139,13 +142,13 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 				}
 				else
 				{
-					switch(che)
+					switch(way1)
 					{
 						case 0:
 							printf("   ");
 							break;
 						case 1:
-							printf(" ഖ ");
+							printf(" à´– ");
 							break;
 						case 2:
 							printf(" E ");
@@ -164,7 +167,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 		{
 			if((M.Matrix[i][j]/2)%2 == 1)
 			{
-				if ((M.Matrix[i][j-1]/2)%2 == 0) //Si il y a dÃ©jÃ  un mur en bas prÃ©cedement, 
+				if ((M.Matrix[i][j-1]/2)%2 == 0) //Si il y a dÃƒÂ©jÃƒ  un mur en bas prÃƒÂ©cedement, 
 				{                               //il n'y a pas besoin de remettre une intersection
 					printf("+---+");
 				}
@@ -175,7 +178,7 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 			}
 			else
 			{
-				if ((M.Matrix[i][j-1]/2)%2 == 0)//Si il n'y a pas dÃ©jÃ  un mur en bas prÃ©cedement, 
+				if ((M.Matrix[i][j-1]/2)%2 == 0)//Si il n'y a pas dÃƒÂ©jÃƒ  un mur en bas prÃƒÂ©cedement, 
 				{                               //il faut marquer l'intersection de deux case
 					printf("+   ");
 				}
@@ -197,4 +200,3 @@ void display_path(Path path)
 		printf("(%d , %d)%s\n", path.Way[i].X, path.Way[i].Y, i != path.distance ? " -> " : "");
 	printf("\n\n");
 }
-// En cas de besoin, affiche les cases successives que le chemin emprunte. Bisous, Morgane <3 
