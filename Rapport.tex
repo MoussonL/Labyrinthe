@@ -71,10 +71,10 @@ Les fonctions vérifiant la validité d'un labyrinthe sont placé dans le fichie
 
 2.2.3 Validité et cohérence du labyrinthe
 
-Une des fonctions indispensable était bien sur la fonction testant si les valeurs du labyrinthe étaient cohérentes. Qu'il soit généré par un fichier ou aléatoirement. Meme si le cas d'erreur le plus probable reste celui du fichier, les fonctions aléatoires étant écrite de sorte à éviter ce type d'erreur, nosu testons tous les labyrinthes générés par cette fonction. Cette fonction 
-
-
-
+Une des fonctions indispensable était bien sur la fonction testant si les valeurs du labyrinthe étaient cohérentes. Qu'il soit généré par un fichier ou aléatoirement. Meme si le cas d'erreur le plus probable reste celui du fichier, les fonctions aléatoires étant écrite de sorte à éviter ce type d'erreur, nous testons dans le main tous les labyrinthes générés par cette fonction. 
+La fonction MazeValid s'appuie sur la fonction itob, qui prend un entier et le décompose en binaire dans un tableau qu'elle retourne. Elle fonctionne avec l'utilisation de divisions euclidienne et donc du modulo. 
+MazeValid prend donc en paramètre une structure labyrinthe. Elle teste si les coordonnées de l'entrée et de la sortie sont bien dans le labyrinthe, si l'entrée est positionnée différement de la sortie, et retourne le type d'erreur commise.
+Ensuite, Elle teste si les murs correspondent : Si deux cases adjacentes ont bien des murs correspondants, ou le cas échéant, aucun mur. De la sorte, On ne peut pas avoir de mur "simple" entre deux cases. De même elle retourne d'où vient l'erreur s'il y en a une. Après avoir libéré la mémoire allouée avec free, la fonction retourne 1 si le labyrinthe est valide, 0 sinon.
 
 3.Chemin //Morgane
 3.1 Chemin...
@@ -84,12 +84,12 @@ Une des fonctions indispensable était bien sur la fonction testant si les valeu
 
 5. Main et Makefile
 5.1 Main
-5.1.1
+5.1.1 
 
 
 
 5.2 Makefile
-5.2.1 Pourquoi en faire un
+5.2.1 Choix technique
 Le principe du Makefile est de découper son code en plusieurs morceaux distincts de façon à le rendre plus compréhensible.
 C'est également plus facile de travailler en groupe de la sorte. 
 Au vu de l'envergure du projet, et vu le fait que nous étions au nombre de quatre, il était impératif d'en faire un. 
@@ -97,7 +97,7 @@ De sorte, il y a au total un main.c, qui est le main général. Un fichier .h qu
 Et sept fichiers.c distincts, validite.c, fichiers.c, affichage.c, mazerand1.c, mazerand2.c, mazepile.c et waysearch.c.
 Tous ces fichiers sont donc liés par le Makefile ce qui permet de distinguer leur utilité et de les modifier plus facilement au besoin.
 
-5.2.2 La mise en pratique et les choix techniques
+5.2.2 En pratique
 Nous avons décidé en faisant le Makefile, de ne pas alourdir l'écriture avec les différentes commandes possibles.
 Nous avons simplement rajouté un "clean" pour supprimer les fichiers .o générés lors de la compilation. 
 
