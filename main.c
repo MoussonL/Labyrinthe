@@ -88,7 +88,18 @@ int main()
 				break;
 		case 3: //labyrinthe pseudo aléatoire
 	        	printf("le labyrinthe va etre généré pseudo aléatoirement\n");
-	        	
+			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+				scanf("%d",&choice);
+				switch(choice){
+					case 1:	size1 = rand()%100 + 1; 
+						size2 = rand()%100 + 1; 
+					break;
+					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
+						scanf("%d",&size1);
+						scanf("%d",&size2);
+					break;
+				default: break;
+				}
 		        break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
