@@ -47,6 +47,7 @@ int* itob(int a, int * T);
 int MazeValid(Maze m);
 
 //affiche le lab
+int chemin(Maze M, Path path, int i, int j)
 void aff(Maze M);
 void display_path(Path path);
 
@@ -68,6 +69,5 @@ int is_not_a_wall(Maze maze, int ligne, int colonne, int dir);
 Position pos_adjacent_cell(Maze maze, int ligne, int colonne);
 Path ft_build_path(Maze maze);
 Path way_search(Maze maze);
-void display_path(Path path);
 
 #endif
