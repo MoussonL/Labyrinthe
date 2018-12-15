@@ -29,14 +29,14 @@ void aff(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 	int i,j,k;
 	int chem,che;
 
-	for (i = 0; i < M.Lin; i++)
+	/*for (i = 0; i < M.Lin; i++)
 	{
 		for (j = 0; j < M.Col; j++)
 		{
 			chem =chemin(M,path,i,j); 
 			printf("%d  ",chem);
 		}
-		printf("\n");	}
+		printf("\n");	}*/
 	for ( i = 0; i < M.Col ; i++) //Premier mur du haut
 	{
 		if((M.Matrix[0][i]/8)%2 == 1)
