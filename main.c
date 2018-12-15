@@ -37,13 +37,13 @@ int main()
 				{
 					if(MazeValid(m_fic))//test si le labyrinthe est valide 
 					{
-						printf("lab valide\n");
+						printf("labyrinthe valide\n");
 						path = way_search(m_fic);
 						aff(m_fic,path);
 					}
 					else
 					{
-						printf("lab non valide\n");
+						printf("labyrinthe non valide\n");
 					}
 				}
 				//libération de la mémoire allouée
