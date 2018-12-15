@@ -1,5 +1,5 @@
-lab : Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
-	gcc -o lab Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
+lab : Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o Waysearch.o main.o
+	gcc -o lab Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o Waysearch.o main.o
 
 main.o : main.c Maze.h
 	gcc -c main.c 
@@ -16,8 +16,8 @@ MazeRand2.o : MazeRand2.c Maze.h
 MazePile.o : MazePile.c Maze.h
 	gcc -c MazePile.c	
 	
-waysearch.o : waysearch.c Maze.h
-	gcc -c waysearch.c
+Waysearch.o : Waysearch.c Maze.h
+	gcc -c Waysearch.c
 	
 Validity.o : Validite.c Maze.h
 	gcc -c Validity.c
