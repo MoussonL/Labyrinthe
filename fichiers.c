@@ -46,13 +46,14 @@ char* saveMaze(Maze m, char * fic_alea)
 		return NULL;
 	}
 
-	fprintf(flot,"%d,%d,%d,%d,%d,%d\n",m.Lin,m.Col,m.In[0],m.In[1],m.Out[0],m.Out[1]);
+	fprintf(flot,"%d %d %d %d %d %d\n",m.Lin,m.Col,m.In[0],m.In[1],m.Out[0],m.Out[1]);
 	for (int i = 0; i < m.Lin; ++i)
 	{
 		for (int j = 0; j < m.Col; ++j)
 		{
-			fprintf(flot,"%d\n",m.Matrix[i][j]);
+			fprintf(flot,"%d",m.Matrix[i][j]);
 		}
+		fprintf(flot,"\n");
 	}
 	fclose(flot);
 	return fic_alea;
