@@ -100,7 +100,7 @@ int main()
 				default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
-				if(MazeValide(m_alea2)){
+				if(MazeValid(m_alea2)){
 				path = way_search(m_alea2);
 				dis(m_alea2,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
@@ -134,7 +134,7 @@ int main()
 					break;
 				}
 			    Maze m_pile = MazePile(size1,size2);
-			if(MazeValide(m_pile)){
+			if(MazeValid(m_pile)){
 			    path = way_search(m_pile);
 			    dis(m_pile, path);
 			    printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
