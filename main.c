@@ -49,14 +49,14 @@ int main()
 		break;
 		case 2:	//labyrinthe totalement aléatoire
 		
-		       		printf("le labyrinthe va etre généré aléatoirement\n");
+		       		printf("le labyrinthe va être généré aléatoirement\n");
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = rand()%34 + 1; 
 						size2 = rand()%34 + 1; 
 					break;
-					case 2: printf("Donner la taille (n x m)<35 du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m)<35 du labyrinthe : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -65,7 +65,7 @@ int main()
 				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
 				dis(m_alea, path);
-				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+				printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
@@ -78,7 +78,7 @@ int main()
 				}
 				else
 				{
-					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else
 				{
@@ -86,7 +86,7 @@ int main()
 				}
 				break;
 		case 3: //labyrinthe pseudo aléatoire
-	        	printf("le labyrinthe va etre généré pseudo aléatoirement\n");
+	        	printf("le labyrinthe va être généré pseudo-aléatoirement\n");
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
