@@ -12,6 +12,9 @@ MazeRand1.o : MazeRand1.c labyrinthe.h
 	
 MazeRand2.o : MazeRand2.c labyrinthe.h
 	gcc -c -O3 MazeRand2.c	
+
+MazePile.o : MazePile.c labyrinthe.h
+	gcc -c -O3 MazePile.c	
 	
 waysearch.o : waysearch.c labyrinthe.h
 	gcc -c -O3 waysearch.c
