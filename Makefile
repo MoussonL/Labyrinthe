@@ -1,5 +1,5 @@
-lab : validite.o fichiers.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
-	gcc -o lab validite.o fichiers.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
+lab : Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
+	gcc -o lab Validity.o File.o Display.o MazeRand1.o MazeRand2.o MazePile.o waysearch.o main.o
 
 main.o : main.c labyrinthe.h
 	gcc -c main.c 
@@ -19,11 +19,11 @@ MazePile.o : MazePile.c labyrinthe.h
 waysearch.o : waysearch.c labyrinthe.h
 	gcc -c waysearch.c
 	
-validite.o : validite.c labyrinthe.h
-	gcc -c validite.c
+Validity.o : Validite.c labyrinthe.h
+	gcc -c Validity.c
 
-fichiers.o : fichiers.c labyrinthe.h
-	gcc -c fichiers.c
+File.o : File.c labyrinthe.h
+	gcc -c File.c
 
 clean: 
 	rm *.o
