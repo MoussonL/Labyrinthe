@@ -11,12 +11,11 @@ int main()
 	char* fic_save=(char*)calloc(50,sizeof(char));
 	printf("Bonjour, choisissez une option de génération du labyrinthe:\n1- d'après un fichier \n2- de façon totalement aléatoire\n3- de façon pseudo aléatoire\n4-avec des piles (toutes les cases accessibles depuis l'entrée)\n");
 	scanf("%d",&val);
+	Maze m;
 	Path path;
 	switch(val)
 	{
 		case 1:	//cas fichier
-			     
-			 	Maze m;
 				printf("donnez le nom de votre fichier, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = (char*)calloc(50,sizeof(char));
 				char* s = (char*)calloc(3,sizeof(char));
@@ -53,7 +52,7 @@ int main()
 					free(m_fic.Matrix[i]);
 				}
 				free(m_fic.Matrix);
-				free(m.Matrix);
+				
 		break;
 		case 2:	//labyrinthe totalement aléatoire
 		
