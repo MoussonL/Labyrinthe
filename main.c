@@ -45,13 +45,6 @@ int main()
 					{
 						printf("labyrinthe non valide\n");
 					}
-				}
-				//libération de la mémoire allouée
-				for(int i = 0; i<m_fic.Col;i++)
-				{
-					free(m_fic.Matrix[i]);
-				}
-				free(m_fic.Matrix);
 				
 		break;
 		case 2:	//labyrinthe totalement aléatoire
@@ -67,7 +60,6 @@ int main()
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
-				default: break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
 				if(MazeValid(m_alea)){
@@ -92,7 +84,6 @@ int main()
 				{
 				    printf("erreur validité");
 				}
-				free(m_alea.Matrix);
 				break;
 		case 3: //labyrinthe pseudo aléatoire
 	        	printf("le labyrinthe va etre généré pseudo aléatoirement\n");
@@ -126,7 +117,7 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
-				free(m_alea2.Matrix);
+				
 		        	break;
 		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
 			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
@@ -140,7 +131,6 @@ int main()
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
-				default: break;
 				}
 			    Maze m_pile = MazePile(size1,size2);
 			    path = way_search(m_pile);
@@ -160,12 +150,12 @@ int main()
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
-				free(m_pile.Matrix);
+				
+				break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
-	
-	//Liberer l'espace allouer pour le labyrinthe
-	free(m.Matrix);
+
+
 
 	return 0;
 }
