@@ -49,7 +49,7 @@ int MazeValid(Maze m)
 	//test entree!=sortie
 	if(m.In[0]==m.Out[0]&&m.In[1]==m.Out[1])
 	{
-		printf("entree == sortie erreur !! \n);
+		printf("entree == sortie erreur !! \n");
 		       return 0;
 	}
 		
