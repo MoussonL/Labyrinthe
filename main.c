@@ -71,6 +71,7 @@ int main()
 				default: break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
+				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
 				aff(m_alea, path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
@@ -87,6 +88,10 @@ int main()
 				else
 				{
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+				}
+				}else
+				{
+				    printf("erreur validité");
 				}
 				free(m_alea.Matrix);
 				break;
