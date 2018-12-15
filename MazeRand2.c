@@ -1,4 +1,4 @@
-#include "labyrinthe.h"
+#include "Maze.h"
 
 Maze MazeRand2(int size1,int size2)
 {
