@@ -41,7 +41,6 @@ int main()
 					{
 						printf("lab valide\n");
 						path = way_search(m_fic);
-						display_path(path);
 						aff(m_fic);
 					}
 					else
@@ -72,7 +71,8 @@ int main()
 				default: break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
-				aff(m_alea);
+				path = way_search(m_alea);
+				aff(m_alea, path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
@@ -103,8 +103,9 @@ int main()
 					break;
 				default: break;
 				}
-				Maze m_alea = MazePile(size1,size2);
-				aff(m_alea);
+				Maze m_alea = MazeRand2(size1,size2);
+				path = way_search(m_alea);
+				aff(m_alea,path);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
@@ -121,7 +122,23 @@ int main()
 					printf("valeur non reconnue labyrinthe non sauvegardé\n");
 				}
 		        	break;
-			case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
+		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
+			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles")
+			    printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+				scanf("%d",&choice);
+				switch(choice){
+					case 1:	size1 = rand()%100 + 1; 
+						size2 = rand()%100 + 1; 
+					break;
+					case 2: printf("Donner la taille (n x m) du labyrinthe : \n");
+						scanf("%d",&size1);
+						scanf("%d",&size2);
+					break;
+				default: break;
+				}
+			    Maze m_pile = MazePile(size1,size2);
+			    path = way_search(m_pile);
+			    aff(m_pile, path);
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	
