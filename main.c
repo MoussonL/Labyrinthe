@@ -5,7 +5,7 @@ int main()
 	int val = 0;
 	int decision=0;
 	int size1;
-	int size2;
+	int size1;
 	int choice;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
@@ -41,7 +41,8 @@ int main()
 					{
 						printf("lab valide\n");
 						path = way_search(m_fic);
-						aff(m_fic,path);
+						display_path(path);
+						aff(m_fic);
 					}
 					else
 					{
@@ -71,8 +72,7 @@ int main()
 				default: break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
-				path = way_search(m_fic);
-				aff(m_alea,path);
+				aff(m_alea);
 				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
@@ -103,12 +103,29 @@ int main()
 					break;
 				default: break;
 				}
-		        break;
+				Maze m_alea = MazePile(size1,size2);
+				aff(m_alea);
+				printf("si le lab vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde, 2 sinon\n");
+				scanf("%d",&decision);
+				if(decision==1)
+				{
+					scanf("%s",fic_save);
+					saveMaze(m_alea,fic_save);//sauvegarde le fichier généré sous le nom donné
+				}
+				else if(decision==2)
+				{
+					printf("labyrinthe non sauvegardé\n");
+				}
+				else
+				{
+					printf("valeur non reconnue labyrinthe non sauvegardé\n");
+				}
+		        	break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 	}
 	
 	//Liberer l'espace allouer pour le labyrinthe
-	free(maze.matrix);
+	free(maze.Matrix);
 
 	return 0;
 }
