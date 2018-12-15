@@ -12,6 +12,7 @@ int main()
 	printf("Bonjour, si vous souhaitez un lab a partir d'un fichier tapez 1, un lab aléatoire tapez 2 , un labyrinthe pseudo aléatoire tapez 3\n");
 	scanf("%d",&val);
 	Maze m;
+	Path path;
 	switch(val)
 	{
 		case 1:	//cas fichier
@@ -39,6 +40,8 @@ int main()
 					if(MazeValid(m_fic))//test si le labyrinthe est valide 
 					{
 						printf("lab valide\n");
+						path = way_search(m_fic);
+						display_path(path);
 						aff(m_fic);
 					}
 					else
