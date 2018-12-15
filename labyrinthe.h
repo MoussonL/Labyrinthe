@@ -69,7 +69,7 @@ Node* Push(Node* Head,int *Data_In);
 Node* Pop(Node *Head,int *Elt);
 int Empty(Node* Head);
 //Génération d'un labyrinthe pseudo-aléatoirement (cases accécibles, entrée-sortie sur les côtés)
-Maze RandPile(int sise1, int size2);
+Maze MazePile(int size1, int size2);
 
 //fonctions nécessaires à la recherche de chemin:
 void display_lab(Maze* maze);
