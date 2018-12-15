@@ -1,6 +1,6 @@
 #include "labyrinthe.h"
 
-Maze RandMaze1(int size1,int size2)
+Maze MazeRand1(int size1,int size2)
 {
 	Maze maze; //Déclarer une variable de type Maze (labyrinthe)
 	Position p;
