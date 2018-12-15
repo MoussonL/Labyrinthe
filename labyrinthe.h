@@ -59,10 +59,10 @@ void aff(Maze M,Path path);
 void display_path(Path path);
 
 //Génération d'un labyrinthe aléatoirement 
-Maze RandMaze1(int size1, int size2);
+Maze MazeRand1(int size1, int size2);
 
 //Génération d'un labyrinthe aléatoirement et l'entrée/sortie sur les côtés
-Maze RandMaze2(int size1, int size2);
+Maze MazeRand2(int size1, int size2);
 
 //fonctions nécessaires à la recherche de chemin:
 Node* Push(Node* Head,int *Data_In);
