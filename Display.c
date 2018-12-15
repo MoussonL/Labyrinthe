@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "labyrinthe.h"
+#include "Maze.h"
 
 int way(Maze M, Path path, int i, int j)
 {
