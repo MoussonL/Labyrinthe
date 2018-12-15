@@ -49,7 +49,7 @@ int Empty(Node* Head)
 }
  
 //La fonction MazePile() génère un labyrinthe pseudo-aléatoire (Les cases sont toutes accécibles => paforcément il y a un chemain et l'entée/sortie sont sur les côté du labyrinthe)
-Maze MazePile(int sise1, int size2){
+Maze MazePile(int size1, int size2){
 	Maze maze;//Déclarer une variable pour le labyrinthe
 	Position p;
 	Position *Tab_pos; //Tableau des positions possible pour le choix de Entrée/sortie du labyrinthe
