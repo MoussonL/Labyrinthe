@@ -9,7 +9,7 @@ int main()
 	int choice;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
-	printf("Bonjour, choisissez une option de génération du labyrinthe:\n1- d'après un fichier \n2- de façon totalement aléatoire\n3- de façon pseudo aléatoire\n4-avec des piles (toutes les cases accessibles depuis l'entrée)\n");
+	printf("Bonjour, choisissez une option de génération du labyrinthe:\n1- d'après un fichier \n2- de façon totalement aléatoire (entrée et sortie aléatoires)\n3- de façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
 	scanf("%d",&val);
 	Maze m;
 	Path path;
@@ -86,7 +86,7 @@ int main()
 				    printf("labyrinthe non valide\n");
 				}
 				break;
-		case 3: //labyrinthe aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
+		case 3: //labyrinthe pseudo-aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
 	        	printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionées sur les bords su labyrinthe)\n");
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
@@ -123,7 +123,7 @@ int main()
 				}
 				}else{printf("labyrinthe non valide\n");}
 		        	break;
-		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sontaccessibles.
+		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
 			    printf("Labyrinthe parfait (toutes les cases sont accessibles)");
 			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
