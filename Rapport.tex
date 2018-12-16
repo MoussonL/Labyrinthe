@@ -58,7 +58,7 @@ Tout mettre dans la meme struct
 Nous avons choisi de placer les fonctions traitant les fichiers dans un fichier File.c, qui comporte donc les fonctions lectFic et saveMaze expliquées ci dessous.
 
 2.2.1 lecture dans un fichier
-Pour la fonction génération d'un labyrinthe à partir d'un fichier, qui prend en paramètre le nom du fichier, nous testons l'ouverture du fichier donné en paramètre. L'utilisateur a le choix entre un de ses fichiers, et un fichier par défaut (celui de l'énoncé). Si le fichier donné ne s'ouvre pas correctement (valeur de retour égale à NULL), nous affichons l'erreur et renvoyons un labyrithe non valide. De sorte que dans le main, un seul test suffise à déterminer s'il y a un problème d'ouverture.
+Pour la fonction génération d'un labyrinthe à partir d'un fichier, qui prend en paramètre le nom du fichier, nous testons l'ouverture du fichier donné en paramètre. L'utilisateur a le choix entre un de ses fichiers, et un fichier par défaut (celui de l'énoncé). Si le fichier donné ne s'ouvre pas correctement (valeur de retour égale à NULL), nous affichons l'erreur et renvoyons un labyrinthe dont le nombre de ligne est égale à zéro. De sorte que dans le main, un seul test suffise à déterminer s'il y a un problème d'ouverture.
 Si la valeur retournée est différente de NULL, nous scannons les valeurs de la première ligne puis, après avoir alloué dynamiquement un tableau à deux dimensions, nous faisons une double boucle, à partir des valeurs ligne et colonne récupérées précédement. Calloc est préféré à Malloc pour l'allocation, car il initialise l'ensemble à zéro. Il ne reste plus qu'à fermer le fichier, puis à retourner la structure Maze, remplie par les valeurs du fichiers.
 
 2.2.2 Sauvegarde dans un fichier
@@ -86,32 +86,32 @@ Ensuite, Elle teste si les murs correspondent : Si deux cases adjacentes ont bie
 
 5. Main et Makefile
 5.1 Main
-5.1.1 Choix
 Nous avons choisi d'utiliser un switch pour alléger le programme déjà conséquent du main.c. De sorte, une seule vealeur est testée, et cela évite de trop nombreux tests. Nous déclarons les variables locales à la fonction au début. Parmi celles ci la déclaration d'une chaine de caractere pour allouer le nom du fichier de sauvegarde, et l'initialisation du srand pour la génération aléatoire.
-Puis nous demandons à l'utilisateur de choisir parmi les quatre génération possible de labyrinthe :
+Puis nous demandons à l'utilisateur de choisir parmi les quatre générations possible de labyrinthe :
+
 Cas 1 : D'après un fichier donné ou par défaut.
-Le fichier par défaut est celui de l'énoncé du projet qui a été joint au mot ENTREE avec un #define de sorte que l'on puisse changer ce fichier plus facilement en ne le modifiant que dans le Maze.h.
-Cas 2 : 
 
+Le fichier par défaut est celui de l'énoncé du projet qui a été joint au mot ENTREE avec un #define de sorte que l'on puisse changer ce fichier plus facilement en ne le modifiant que dans le Maze.h. Après avoir testé si le fichier s'ouvrait, (s'il ne retournait pas une structure dont le nombre de ligne égale zéro) nous vérifions qu'il est valide avec MazeValid, puis on génère le chemin en appelant way_search. Il ne reste plus qu'à afficher le labyrinthe avec dis.
 
+Cas 2 : Génération totalement aléatoire du labyrinthe.
 
+Après avoir confirmé à l'utilisateur que le labyrinthe allait etre généré aléatoirement, on lui demande s'il veut imposer la taille ou s'il préfère que ce soit totalement aléatoire. On le prévient ici que s'il choisit m, soit le nombre de colones supérieur à 35 l'affichage risque d'être faussé car la largeur de l'écran sera atteinte. La taille sera modulo 32767 car cela est la limite du srand. Puis nous lui proposons de sauvegarder le labyrinthe avec saveMaze.
 
-
+Nous procédons de même pour le cas 3 (génération pseudo aléatoire) et le cas 4 (génération avec Piles pour atteindre toutes les cases depuis l'entrée).
 
 5.2 Makefile
 5.2.1 Choix technique
 Le principe du Makefile est de découper son code en plusieurs morceaux distincts de façon à le rendre plus compréhensible.
 C'est également plus facile de travailler en groupe de la sorte. 
-Au vu de l'envergure du projet, et vu le fait que nous étions au nombre de quatre, il était impératif d'en faire un. 
+Au vu de l'envergure du projet, et car nous étions au nombre de quatre, il était impératif d'en faire un. 
 De sorte, il y a au total un main.c, qui est le main général. Un fichier .h qui est inclus dans tous les autres fichiers .c.  
 Et sept fichiers.c distincts, validite.c, fichiers.c, affichage.c, mazerand1.c, mazerand2.c, mazepile.c et waysearch.c.
 Tous ces fichiers sont donc liés par le Makefile ce qui permet de distinguer leur utilité et de les modifier plus facilement au besoin.
 
 5.2.2 En pratique
 Nous avons décidé en faisant le Makefile, de ne pas alourdir l'écriture avec les différentes commandes possibles.
-Nous avons simplement rajouté un "clean" pour supprimer les fichiers .o générés lors de la compilation. 
-
-
+Nous avons simplement rajouté un "clean" pour supprimer les fichiers .o générés lors de la compilation. Il a été quelque peu compliqué de déterminer s'il y avait dépendence ou non entre les fichiers, et comment traiter le cas du .h. Cependant, après quelques recherches sur internet, étayée par le polycopié distribué en début d'année, cela s'est vite réglé. 
+En conclusion, il suffit d'écrire la commande make dans le terminal, puis la commande ./lab pour éxécuter le projet.
 
 6.Exemples d'executions
 6.1 Test en dur
