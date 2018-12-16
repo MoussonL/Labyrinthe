@@ -46,7 +46,7 @@ int main()
 					}
 				}
 		break;
-		case 2:	//labyrinthe totalement aléatoire
+		case 2:	//labyrinthe aléatoire (positions de l'entrée/sortie n'importe où dans le labyrinthe)
 		
 		       		printf("le labyrinthe va être généré aléatoirement\n");
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
@@ -84,7 +84,7 @@ int main()
 				    printf("labyrinthe non valide\n");
 				}
 				break;
-		case 3: //labyrinthe pseudo aléatoire
+		case 3: //labyrinthe aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
 	        	printf("le labyrinthe va être généré pseudo-aléatoirement\n");
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
@@ -119,7 +119,7 @@ int main()
 				}
 				}else{printf("labyrinthe non valide\n");}
 		        	break;
-		case 4://labyrinthe avec pile pour que toutes les cases soit accessibles depuis l'entrée
+		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sontaccessibles.
 			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
 			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
