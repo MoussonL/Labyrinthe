@@ -52,8 +52,8 @@ int main()
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%32767 + 1; 
-						size2 = rand()%32767 + 1; 
+					case 1:	size1 = rand()%35 + 1; 
+						size2 = rand()%35 + 1; 
 					break;
 					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si n et/ou m superieur à 35 l'affichage ne sera pas cohérent : \n");
 						scanf("%d",&size1);
@@ -91,8 +91,8 @@ int main()
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%32767 + 1; 
-						size2 = rand()%32767 + 1; 
+					case 1:	size1 = rand()%35 + 1; 
+						size2 = rand()%35 + 1; 
 					break;
 					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent  : \n");
 						scanf("%d",&size1);
@@ -128,8 +128,8 @@ int main()
 			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = rand()%32767 + 1; 
-						size2 = rand()%32767 + 1; 
+					case 1:	size1 = rand()%35 + 1; 
+						size2 = rand()%35 + 1; 
 					break;
 					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent  : \n");
 						scanf("%d",&size1);
