@@ -43,7 +43,6 @@ void saveMaze(Maze m, char * fic_alea)
 	if((flot = fopen(fic_alea,"w"))==NULL)
 	{
 		printf("erreur fichier ouverture\n");
-		return NULL;
 	}
 
 	fprintf(flot,"%d %d %d %d %d %d\n",m.Lin,m.Col,m.In[0],m.In[1],m.Out[0],m.Out[1]);
