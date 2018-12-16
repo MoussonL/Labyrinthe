@@ -48,23 +48,25 @@ int main()
 		break;
 		case 2:	//labyrinthe aléatoire (positions de l'entrée/sortie n'importe où dans le labyrinthe)
 		
-		       		printf("le labyrinthe va être généré aléatoirement\n");
-				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+		       		printf("le labyrinthe va être généré totalement aléatoirement\n");
+				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = rand()%32767 + 1; 
 						size2 = rand()%32767 + 1; 
 					break;
-					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent : \n");
+					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si n et/ou m superieur à 35 l'affichage ne sera pas cohérent : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
+				printf("taille, entrée , sortie\n");
+				printf(m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[0]\n");
 				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
 				dis(m_alea, path);
-				printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+				printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
@@ -85,7 +87,7 @@ int main()
 				}
 				break;
 		case 3: //labyrinthe aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
-	        	printf("le labyrinthe va être généré pseudo-aléatoirement\n");
+	        	printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionées sur les bords su labyrinthe)\n");
 			printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
@@ -99,10 +101,12 @@ int main()
 				default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
+				printf("taille, entrée , sortie\n");
+				printf(m_alea2.Lin, m_alea2.Col , m_alea2.In[0],m_alea2.In[1], m_alea2.Out[0],m_alea2.Out[0]\n");
 				if(MazeValid(m_alea2)){
 				path = way_search(m_alea2);
 				dis(m_alea2,path);
-				printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+				printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 				scanf("%d",&decision);
 				if(decision==1)
 				{
@@ -120,7 +124,7 @@ int main()
 				}else{printf("labyrinthe non valide\n");}
 		        	break;
 		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sontaccessibles.
-			    printf("Labyrinthe généré avec des piles pour que toutes les cases soient accessibles");
+			    printf("Labyrinthe parfait (toutes les cases sont accessibles)");
 			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
@@ -133,6 +137,8 @@ int main()
 					break;
 				}
 			    Maze m_pile = MazePile(size1,size2);
+				printf("taille, entrée , sortie\n");
+				printf(m_pile.Lin, m_pile.Col , m_pile.In[0],m_pile.In[1], m_pile.Out[0],m_pile.Out[0]\n");
 			if(MazeValid(m_pile)){
 			    path = way_search(m_pile);
 			    dis(m_pile, path);
