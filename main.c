@@ -62,7 +62,7 @@ int main()
 				}
 				Maze m_alea = MazeRand1(size1,size2);
 				printf("taille, entrée , sortie\n");
-				printf("%d,%d,%d,%d,%d,%d",m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[0]);
+				printf("%d,%d,%d,%d,%d,%d",m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[1]);
 				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
 				dis(m_alea, path);
@@ -102,7 +102,7 @@ int main()
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
 				printf("taille, entrée , sortie\n");
-				printf("%d,%d,%d,%d,%d,%d",m_alea2.Lin, m_alea2.Col , m_alea2.In[0],m_alea2.In[1], m_alea2.Out[0],m_alea2.Out[0]);
+				printf("%d,%d,%d,%d,%d,%d",m_alea2.Lin, m_alea2.Col , m_alea2.In[0],m_alea2.In[1], m_alea2.Out[0],m_alea2.Out[1]);
 				if(MazeValid(m_alea2)){
 				path = way_search(m_alea2);
 				dis(m_alea2,path);
@@ -138,7 +138,7 @@ int main()
 				}
 			    Maze m_pile = MazePile(size1,size2);
 				printf("taille, entrée , sortie\n");
-				printf("%d,%d,%d,%d,%d,%d",m_pile.Lin, m_pile.Col , m_pile.In[0],m_pile.In[1], m_pile.Out[0],m_pile.Out[0]);
+				printf("%d,%d,%d,%d,%d,%d",m_pile.Lin, m_pile.Col , m_pile.In[0],m_pile.In[1], m_pile.Out[0],m_pile.Out[1]);
 			if(MazeValid(m_pile)){
 			    path = way_search(m_pile);
 			    dis(m_pile, path);
