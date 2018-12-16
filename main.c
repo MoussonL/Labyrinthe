@@ -55,7 +55,7 @@ int main()
 					case 1:	size1 = rand()%32767 + 1; 
 						size2 = rand()%32767 + 1; 
 					break;
-					case 2: printf("Donnez la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -92,7 +92,7 @@ int main()
 					case 1:	size1 = rand()%32767 + 1; 
 						size2 = rand()%32767 + 1; 
 					break;
-					case 2: printf("Donnez la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent  : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
@@ -127,7 +127,7 @@ int main()
 					case 1:	size1 = rand()%32767 + 1; 
 						size2 = rand()%32767 + 1; 
 					break;
-					case 2: printf("Donnez la taille (n x m) du labyrinthe : \n");
+					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m>35 l'affichage ne sera pas cohérent  : \n");
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
