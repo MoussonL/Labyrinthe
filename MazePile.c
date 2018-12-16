@@ -99,8 +99,8 @@ Maze MazePile(int size1, int size2){
 	
 
 	//Choisir aléatoirement une position de début 
-	int val= rand()%maze.Lin;
-	int val1= rand()%maze.Col;
+	int val= rand()%maze.Lin-1;
+	int val1= rand()%maze.Col-1;
 	//Initialiser le tableau temporaire stack[4] à la première position où on se positionne la première fois (pas de parent) 
 	stack[0]=val;
 	stack[1]=val1;
