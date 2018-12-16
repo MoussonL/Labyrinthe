@@ -37,7 +37,6 @@ int main()
 				{
 					if(MazeValid(m_fic))//test si le labyrinthe est valide 
 					{
-						printf("labyrinthe valide\n");
 						path = way_search(m_fic);
 						dis(m_fic,path);
 					}
