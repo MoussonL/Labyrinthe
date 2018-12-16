@@ -64,7 +64,7 @@ Maze MazeRand1(int size1, int size2);
 //Génération d'un labyrinthe aléatoirement et l'entrée/sortie sur les côtés
 Maze MazeRand2(int size1, int size2);
 
-//fonctions nécessaires à la recherche de chemin:
+//fonctions nécessaires dans la fonction de génération d'un labyrinthe pseudo-aléatoirement:
 Node* Push(Node* Head,int *Data_In);
 Node* Pop(Node *Head,int *Elt);
 int Empty(Node* Head);
