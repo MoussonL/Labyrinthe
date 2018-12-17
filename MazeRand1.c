@@ -193,8 +193,8 @@ Maze MazeRand1(int size1,int size2)
 	}
 	
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
-	int Pos_InX= rand()%maze.Lin-1;
-	int Pos_InY= rand()%maze.Col-1;
+	int Pos_InX= rand()%(maze.Lin-1);
+	int Pos_InY= rand()%(maze.Col-1);
 	
 	//Affecter la valeur de l'entrée à In[2]
 	maze.In[0]=Pos_InX;
@@ -205,11 +205,11 @@ Maze MazeRand1(int size1,int size2)
 
 	//Chercher une position differente de l'entrée	
 	do{
-		Pos_OutX = rand()%maze.Lin-1;
+		Pos_OutX = rand()%(maze.Lin-1);
 	}while(Pos_OutX == Pos_InX);
 	
 	do{
-		Pos_OutY = rand()%maze.Col-1;
+		Pos_OutY = rand()%(maze.Col-1);
 	}while(Pos_OutY == Pos_InY);
 	
 	//Affecter la valeur de la sortie à Out[2]
