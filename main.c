@@ -90,7 +90,6 @@ int main()
 					break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
-				printf("%d,%d,%d,%d,%d,%d",m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[1]);
 				if(MazeValid(m_alea)){
 					t1 = time(NULL);
          				if (t1 == (time_t)-1)
