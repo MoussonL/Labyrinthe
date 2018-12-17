@@ -41,21 +41,21 @@ int main()
 				Maze m_fic = m;
 				if(m_fic.Lin!=1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == 1000 ou validité du fichier == 0
 				{
-            t1 = time(NULL);
-             if (t1 == (time_t)-1)
-          {
-               perror("time");
-            printf("erreur time\n");
-            }
-            path = way_search(m_fic);
+         				   t1 = time(NULL);
+         				    if (t1 == (time_t)-1)
+         			 {
+         			      perror("time");
+         			   printf("erreur time\n");
+         			   }
+         			   path = way_search(m_fic);
    
-          t2 = time(NULL);
-         if (t2 == (time_t)-1)
-         {
-            perror("time");
-            return 1;
-         }
-         printf("%ld secondes pour trouver le chemin\n", t2-t1);
+       			   t2 = time(NULL);
+      			   if (t2 == (time_t)-1)
+      			   {
+      			      perror("time");
+      			      return 1;
+      			   }
+      			   printf("%ld secondes pour trouver le chemin\n", t2-t1);
 						
 						dis(m_fic,path);
 				}
