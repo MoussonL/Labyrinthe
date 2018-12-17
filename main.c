@@ -9,12 +9,16 @@ int main()
 	int choice;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
-	printf("Bonjour, choisissez une option de génération du labyrinthe:\n1- d'après un fichier \n2- de façon totalement aléatoire (entrée et sortie aléatoires)\n3- de façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
+	int stop=-1;
+	while(stop!=0)
+	{
+	printf("Bonjour, choisissez une option de génération du labyrinthe:\n1- d'après un fichier \n2- de façon totalement aléatoire (entrée et sortie aléatoires)\n3- de façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n0-Pour arrêter le programme\n");
 	scanf("%d",&val);
 	Maze m;
 	Path path;
 	switch(val)
 	{
+		case 0 : stop = 0;break;
 		case 1:	//cas fichier
 				printf("donnez le nom de votre fichier avec l'extension .txt, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = (char*)calloc(50,sizeof(char));
@@ -164,6 +168,6 @@ int main()
 	}
 
 
-
+}
 	return 0;
 }
