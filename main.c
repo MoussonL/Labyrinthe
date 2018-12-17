@@ -37,7 +37,7 @@ int main()
 					m = lectFic(fic);
 				}
 				Maze m_fic = m;
-				if(m_fic.Lin!=-1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == -1000 ou validité du fichier == 0
+				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{
 						path = way_search(m_fic);
 						dis(m_fic,path);
