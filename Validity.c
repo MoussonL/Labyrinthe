@@ -1,4 +1,5 @@
 
+
 #include "Maze.h"
 
 //Prends un entier et un tableau de 16 éléments et remplit le tableau avec sa base 2 tab[0]=bit poids faible
@@ -36,6 +37,10 @@ int* itob(int a, int * T)
 
 int MazeValid(Maze m)
 {
+	if(m.Lin<0||m.Col<0)
+	{
+		printf("erreur taille négative\n");
+	}
 	//test validité entree sortie<taille
 
 	if((m.In[0]<0)||(m.In[0]>m.Lin-1)||(m.In[1]<0)||(m.In[1]>m.Col-1))
@@ -45,6 +50,7 @@ int MazeValid(Maze m)
 			printf("index entree/sortie faux : erreur %d %d entree %d %d sortie %d ligne %d col !!\n", m.In[0], m.In[1], m.Out[0], m.Out[1],m.Lin, m.Col);
 			return 0;
 		}
+		return 0;
 	}
 	//test entree!=sortie
 	if(m.In[0]==m.Out[0]&&m.In[1]==m.Out[1])
@@ -52,7 +58,6 @@ int MazeValid(Maze m)
 		printf("entree == sortie erreur !! \n");
 		       return 0;
 	}
-		
 		
 
 	//test correspondance murs
