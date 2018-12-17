@@ -48,7 +48,7 @@ int MazeValid(Maze m)
 	{
 		if((m.Out[0]<0)||(m.Out[0]>m.Lin-1)||(m.Out[1]<0)||(m.Out[1]>m.Col-1))
 		{
-			printf("index sortie faux : erreur);
+			printf("index sortie faux : erreur\n");
 			return 0;
 		}
 		printf("erreur entree\n");
