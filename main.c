@@ -12,20 +12,20 @@ int main()
 	int stop=-1;
 	while(stop!=0)
 	{
-	printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
-	scanf("%d",&val);
-	Maze m;
-	Path path;
-	switch(val)
-	{
-		case 0 : stop = 0;break;
-		case 1:	//cas fichier
+		printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
+		scanf("%d",&val);
+		Maze m;
+		Path path;
+		switch(val)
+		{
+			case 0 : stop = 0;break;
+			case 1:	//cas fichier
 				printf("Donnez le nom de votre fichier avec l'extension .txt, sinon tapez non et ce sera un fichier par défaut\n");
 				char* fic = (char*)calloc(50,sizeof(char));
 				char* s = (char*)calloc(3,sizeof(char));
 				s = "non";
 				scanf("%s", fic);
-			    //fic = ENTREE;
+			    	//fic = ENTREE;
 				if (*fic==*s)
 				{
 				    //fic défaut
@@ -37,7 +37,7 @@ int main()
 					m = lectFic(fic);
 				}
 				Maze m_fic = m;
-				if(m_fic.Lin!=1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == 1000 ou validité du fichier == 0
+				if(m_fic.Lin!=-1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == -1000 ou validité du fichier == 0
 				{
 						path = way_search(m_fic);
 						dis(m_fic,path);
