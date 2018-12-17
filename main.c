@@ -47,16 +47,15 @@ int main()
          					perror("time");
          			 		printf("erreur time\n");
          			  	 }
-         			 	 path = way_search(m_alea2);
-   
-       			   		t2 = time(NULL);
+         			 	 path = way_search(m_fic);
+       			   		 t2 = time(NULL);
       			  		 if (t2 == (time_t)-1)
-      			 		  {
-      			  		    perror("time");
-      			  		    printf("erreur temps\n");
+      			 		 {
+      			  		 	perror("time");
+      			  		 	printf("erreur temps\n");
       			  		 }
-					printf("%ld secondes pour trouver le chemin\n", t2-t1);
-					dis(m_fic,path);
+					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					 dis(m_fic,path);
 				}
 				else
 				{
@@ -93,7 +92,20 @@ int main()
 				Maze m_alea = MazeRand1(size1,size2);
 				printf("%d,%d,%d,%d,%d,%d",m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[1]);
 				if(MazeValid(m_alea)){
-					path = way_search(m_alea);
+					t1 = time(NULL);
+         				if (t1 == (time_t)-1)
+         				{
+         					perror("time");
+         			 		printf("erreur time\n");
+         			  	 }
+         			 	 path = way_search(m_alea);
+       			   		 t2 = time(NULL);
+      			  		 if (t2 == (time_t)-1)
+      			 		 {
+      			  		 	perror("time");
+      			  		 	printf("erreur temps\n");
+      			  		 }
+					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 					dis(m_alea, path);
 					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 					scanf("%d",&decision);
@@ -137,24 +149,40 @@ int main()
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValid(m_alea2)){
-				path = way_search(m_alea2);
-				dis(m_alea2,path);
-				printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
-				scanf("%d",&decision);
-				if(decision==1)
+					t1 = time(NULL);
+         				if (t1 == (time_t)-1)
+         				{
+         					perror("time");
+         			 		printf("erreur time\n");
+         			  	 }
+         			 	 path = way_search(m_alea2);
+       			   		 t2 = time(NULL);
+      			  		 if (t2 == (time_t)-1)
+      			 		 {
+      			  		 	perror("time");
+      			  		 	printf("erreur temps\n");
+      			  		 }
+					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					dis(m_alea2,path);
+					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+					scanf("%d",&decision);
+					if(decision==1)
+					{
+						scanf("%s",fic_save);
+						saveMaze(m_alea2,fic_save);//sauvegarde le fichier généré sous le nom donné
+					}
+					else if(decision==2)
+					{
+						printf("labyrinthe non sauvegardé\n");
+					}
+					else
+					{
+						printf("valeur non reconnue : labyrinthe non sauvegardé\n");
+					}
+				}else
 				{
-					scanf("%s",fic_save);
-					saveMaze(m_alea2,fic_save);//sauvegarde le fichier généré sous le nom donné
+					printf("labyrinthe non valide\n");
 				}
-				else if(decision==2)
-				{
-					printf("labyrinthe non sauvegardé\n");
-				}
-				else
-				{
-					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
-				}
-				}else{printf("labyrinthe non valide\n");}
 				/*for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_alea2.Matrix[i]);
