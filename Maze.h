@@ -57,6 +57,7 @@ int MazeValid(Maze m);
 int way(Maze M, Path path, int i, int j);
 void dis(Maze M,Path path);
 void display_path(Path path);
+void display_length_path(Path path);
 
 //Génération d'un labyrinthe aléatoirement 
 Maze MazeRand1(int size1, int size2);

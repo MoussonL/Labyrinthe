@@ -14,7 +14,7 @@ int main()
 	int stop=-1;
 	while(stop!=0)
 	{
-		printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4-Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
+		printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4- Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
 		scanf("%d",&val);
 		Maze m;
 		Path path;
@@ -42,22 +42,11 @@ int main()
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{       
 					//calcule le temps d'éxécution
-					t1 = time(NULL);
-         				if (t1 == (time_t)-1)
-         				{
-         					perror("time");
-         			 		printf("erreur time\n");
-         			  	 }
          			 	 path = way_search(m_fic);
-       			   		 t2 = time(NULL);
-      			  		 if (t2 == (time_t)-1)
-      			 		 {
-      			  		 	perror("time");
-      			  		 	printf("erreur temps\n");
-      			  		 }
-					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 					 //affiche le résultat
 					 dis(m_fic,path);
+					 display_length_path(path);
+
 				}
 				else
 				{
@@ -94,22 +83,11 @@ int main()
 				Maze m_alea = MazeRand1(size1,size2);
 				if(MazeValid(m_alea)){
 					//calcule le temps d'exécution
-					t1 = time(NULL);
-         				if (t1 == (time_t)-1)
-         				{
-         					perror("time");
-         			 		printf("erreur time\n");
-         			  	 }
          			 	 path = way_search(m_alea);
-       			   		 t2 = time(NULL);
-      			  		 if (t2 == (time_t)-1)
-      			 		 {
-      			  		 	perror("time");
-      			  		 	printf("erreur temps\n");
-      			  		 }
-					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 					//affiche le résultat
 					dis(m_alea, path);
+					display_length_path(path);
+
 					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
@@ -153,22 +131,11 @@ int main()
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValid(m_alea2)){
 					//calcule le temps d'execution
-					t1 = time(NULL);
-         				if (t1 == (time_t)-1)
-         				{
-         					perror("time");
-         			 		printf("erreur time\n");
-         			  	 }
          			 	 path = way_search(m_alea2);
-       			   		 t2 = time(NULL);
-      			  		 if (t2 == (time_t)-1)
-      			 		 {
-      			  		 	perror("time");
-      			  		 	printf("erreur temps\n");
-      			  		 }
-					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 					//affiche le résultat
 					dis(m_alea2,path);
+					display_length_path(path);
+
 					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
@@ -211,22 +178,12 @@ int main()
 				if(MazeValid(m_pile)){
 					//calcule le temps d'execution
 			   		t1 = time(NULL);
-         				if (t1 == (time_t)-1)
-         				{
-         					perror("time");
-         			 		printf("erreur time\n");
-         			  	 }
          			 	 path = way_search(m_pile);
-       			   		 t2 = time(NULL);
-      			  		 if (t2 == (time_t)-1)
-      			 		 {
-      			  		 	perror("time");
-      			  		 	printf("erreur temps\n");
-      			  		 }
-					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 					//affcihe le résultat
 			    		dis(m_pile, path);
-			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
+			    		display_length_path(path);
+
+			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension  .txt, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
 					{

@@ -191,6 +191,15 @@ void dis(Maze M, Path path) //val1 = M[i][j] | val2 = M[i][j-1]
 	}
 }
 
+void display_length_path(Path path)
+{
+	if (path.distance != NOPATH)
+	{
+		printf("Le plus court chemin trouvé est de longueur : %d\n",path.distance );
+		printf("\n\n");
+	}
+}
+
 void display_path(Path path)
 {
 	int i;	

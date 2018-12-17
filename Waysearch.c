@@ -111,6 +111,8 @@ void ft_mapping_maze(Maze maze, int longueur)
 			longueur -= 1;
 		}
 	}
+
+	
 }
 
 
@@ -164,9 +166,20 @@ Path ft_build_path(Maze maze)
 
 Path way_search(Maze maze)
 {
+	float time;
+	clock_t begin, end;
+
+	begin = clock();
+
 	set_distance_max(&maze);
 	maze.Find[0] = maze.In[0];
 	maze.Find[1] = maze.In[1];
 	ft_mapping_maze(maze,0);
+	
+
+	end = clock();
+	time = (float)(end - begin)/ CLOCKS_PER_SEC;
+	printf("L'algorithme s'execute en %f secondes. \n", time);
+
 	return(ft_build_path(maze));
 }
