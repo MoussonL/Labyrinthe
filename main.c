@@ -41,8 +41,22 @@ int main()
 				Maze m_fic = m;
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{
-						path = way_search(m_fic);
-						dis(m_fic,path);
+					t1 = time(NULL);
+         				if (t1 == (time_t)-1)
+         				{
+         					perror("time");
+         			 		printf("erreur time\n");
+         			  	 }
+         			 	 path = way_search(m_alea2);
+   
+       			   		t2 = time(NULL);
+      			  		 if (t2 == (time_t)-1)
+      			 		  {
+      			  		    perror("time");
+      			  		    printf("erreur temps\n");
+      			  		 }
+					printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					dis(m_fic,path);
 				}
 				else
 				{
@@ -51,7 +65,7 @@ int main()
 				//Libération mémoire
 				/*free(fic);
 				free(s);
-				printf("erggggeg\n");
+			
 				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m.Matrix[i]);
