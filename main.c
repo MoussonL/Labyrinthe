@@ -145,9 +145,9 @@ int main()
 				}
 				free(m_alea2.Matrix);*/
 		        break;
-		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
-			    printf("Labyrinthe parfait (toutes les cases sont accessibles)");
-			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+			case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
+				printf("Labyrinthe parfait (toutes les cases sont accessibles)");
+			  	printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = rand()%35 + 1; 
@@ -157,37 +157,37 @@ int main()
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
-				}
-			    Maze m_pile = MazePile(size1,size2);
+				  }
+			  	  Maze m_pile = MazePile(size1,size2);
 				if(MazeValid(m_pile)){
-			    path = way_search(m_pile);
-			    dis(m_pile, path);
-			    printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
-				scanf("%d",&decision);
-				if(decision==1)
-				{
-					scanf("%s",fic_save);
-					saveMaze(m_pile,fic_save);//sauvegarde le fichier généré sous le nom donné
-				}
-				else if(decision==2)
-				{
-					printf("labyrinthe non sauvegardé\n");
-				}
-				else
-				{
-					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
-				}
-				}else{printf("labyrinthe non valide\n");}
-				/*for (int i = 0; i < m.Col-1; ++i)
-				{
-					free(m_pile.Matrix[i]);
-				}
-				free(m_pile.Matrix);*/
-				break;
-		default: printf("vous n'avez pas entré une des valeurs demandées\n");
-				break;
-	}
+			   	 	path = way_search(m_pile);
+			    		dis(m_pile, path);
+			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
+					scanf("%d",&decision);
+					if(decision==1)
+					{
+						scanf("%s",fic_save);
+						saveMaze(m_pile,fic_save);//sauvegarde le fichier généré sous le nom donné
+					}
+					else if(decision==2)
+					{
+						printf("labyrinthe non sauvegardé\n");
+					}
+					else
+					{
+						printf("valeur non reconnue : labyrinthe non sauvegardé\n");
+					}
+					}else{printf("labyrinthe non valide\n");}
+					/*for (int i = 0; i < m.Col-1; ++i)
+					{
+						free(m_pile.Matrix[i]);
+					}
+					free(m_pile.Matrix);*/
+			break;
+			default: printf("vous n'avez pas entré une des valeurs demandées\n");
+			break;
+		}
 	//free(fic_save);
-}
+	}
 	return 0;
 }
