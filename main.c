@@ -49,12 +49,12 @@ int main()
 				//Libération mémoire
 				free(fic);
 				free(s);
-				for (int i = 0; i < m.Col; ++i)
+				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m.Matrix[i]);
 				}
 				free(m.Matrix);
-				for (int i = 0; i < m.Col; ++i)
+				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_fic.Matrix[i]);
 				}
@@ -75,7 +75,6 @@ int main()
 					break;
 				}
 				Maze m_alea = MazeRand1(size1,size2);
-				printf("taille, entrée , sortie\n");
 				printf("%d,%d,%d,%d,%d,%d",m_alea.Lin, m_alea.Col , m_alea.In[0],m_alea.In[1], m_alea.Out[0],m_alea.Out[1]);
 				if(MazeValid(m_alea)){
 				path = way_search(m_alea);
@@ -99,7 +98,7 @@ int main()
 				{
 				    printf("labyrinthe non valide\n");
 				}
-				for (int i = 0; i < m.Col; ++i)
+				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_alea.Matrix[i]);
 				}
@@ -139,7 +138,7 @@ int main()
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
-				for (int i = 0; i < m.Col; ++i)
+				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_alea2.Matrix[i]);
 				}
@@ -178,7 +177,7 @@ int main()
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
-				for (int i = 0; i < m.Col; ++i)
+				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_pile.Matrix[i]);
 				}
