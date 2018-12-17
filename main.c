@@ -204,7 +204,20 @@ int main()
 				  }
 			  	  Maze m_pile = MazePile(size1,size2);
 				if(MazeValid(m_pile)){
-			   	 	path = way_search(m_pile);
+			   		t1 = time(NULL);
+         				if (t1 == (time_t)-1)
+         				{
+         					perror("time");
+         			 		printf("erreur time\n");
+         			  	 }
+         			 	 path = way_search(m_pile);
+       			   		 t2 = time(NULL);
+      			  		 if (t2 == (time_t)-1)
+      			 		 {
+      			  		 	perror("time");
+      			  		 	printf("erreur temps\n");
+      			  		 }
+					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
 			    		dis(m_pile, path);
 			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
 					scanf("%d",&decision);
