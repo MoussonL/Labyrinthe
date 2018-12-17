@@ -7,8 +7,6 @@ int main()
 	int size1;
 	int size2;
 	int choice;
-	time_t t1;
-	time_t t2;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
 	int stop=-1;
