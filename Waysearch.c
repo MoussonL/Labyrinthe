@@ -51,7 +51,6 @@ int ft_can_go_there(Maze maze, int dir)
 {
 	int go_there;
 	int been_there_before;
-	int dir1, dir2, dir3, dir4;
 	/*go_there = !((dir == 1 && maze.Matrix[maze.Find[0]][maze.Find[1]] % 2 ) || (dir == 4 && maze.Matrix[maze.Find[0]][maze.Find[1]] / 4 % 2 ) || (dir == 2 && maze.Matrix[maze.Find[0]][maze.Find[1]] / 2 % 2) || (dir == 8 && maze.Matrix[maze.Find[0]][maze.Find[1]] / 8 % 2 ));
 	 go_there me dit si oui ou non je peux avancer dans la direction demandée:
 	-> booléen 1 = 1 si je veux aller à gauche et que j'ai un mur à gauche, 0 sinon
@@ -96,7 +95,6 @@ void ft_mapping_maze(Maze maze, int longueur)
 	
 	if ((maze.Find[1] == maze.Out[1]) && (maze.Find[0] == maze.Out[0]))
 	{
-		printf("Youhou ! longueur = %d\n", longueur);
 		return;
 	}
 
