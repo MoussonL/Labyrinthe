@@ -186,6 +186,7 @@ int main()
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 				break;
 	}
+		free(fic_save);
 }
 	return 0;
 }
