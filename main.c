@@ -7,6 +7,8 @@ int main()
 	int size1;
 	int size2;
 	int choice;
+	time_t t1;
+	time_t t2;
 	srand(time(NULL)); 
 	char* fic_save=(char*)calloc(50,sizeof(char));
 	int stop=-1;
@@ -40,7 +42,7 @@ int main()
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{       
 					//calcule le temps d'éxécution
-         			 	 path = way_search(m_fic);
+         			path = way_search(m_fic);
 					 //affiche le résultat
 					 dis(m_fic,path);
 					 display_length_path(path);
@@ -175,7 +177,6 @@ int main()
 			  	  Maze m_pile = MazePile(size1,size2);
 				if(MazeValid(m_pile)){
 					//calcule le temps d'execution
-			   		t1 = time(NULL);
          			 	 path = way_search(m_pile);
 					//affcihe le résultat
 			    		dis(m_pile, path);
