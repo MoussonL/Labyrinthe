@@ -60,8 +60,7 @@ int MazeValid(Maze m)
 		printf("entree == sortie erreur !! \n");
 		       return 0;
 	}
-		
-
+	
 	//test correspondance murs
 	int *case_courante = (int *)calloc(16,sizeof(int));
 	int * case_courante_2 = (int*)calloc(16,sizeof(int));
