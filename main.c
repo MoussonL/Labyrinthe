@@ -37,22 +37,33 @@ int main()
 					m = lectFic(fic);
 				}
 				Maze m_fic = m;
-				if(m_fic.Lin)//si erreur dans le fichier maze.nblig = 0 sinon !=0 et on entre dans le if
+				printf("\n%d\n",m_fic.In[0]);
+				if(m_fic.Lin!=1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == 1000 ou validité du fichier == 0
 				{
-					if(MazeValid(m_fic))//test si le labyrinthe est valide 
-					{
 						path = way_search(m_fic);
 						dis(m_fic,path);
-					}
-					else
-					{
-						printf("labyrinthe non valide\n");
-					}
+				
+				else
+				{
+					printf("labyrinthe non valide\n");
 				}
+				}
+				free(fic);
+				free(s);
+				for (int i = 0; i < m.Col; ++i)
+				{
+					free(m.Matrix());
+				}
+				free(m.Matrix);
+				for (int i = 0; i < m.Col; ++i)
+				{
+					free(m_fic.Matrix());
+				}
+				free(m_fic.Matrix);
 		break;
 		case 2:	//labyrinthe aléatoire (positions de l'entrée/sortie n'importe où dans le labyrinthe)
 		
-		       		printf("le labyrinthe va être généré totalement aléatoirement\n");
+		       	printf("le labyrinthe va être généré totalement aléatoirement\n");
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
@@ -89,6 +100,11 @@ int main()
 				{
 				    printf("labyrinthe non valide\n");
 				}
+				for (int i = 0; i < m.Col; ++i)
+				{
+					free(m_falea.Matrix());
+				}
+				free(m_alea.Matrix);
 				break;
 		case 3: //labyrinthe pseudo-aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
 	        	printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionées sur les bords su labyrinthe)\n");
@@ -126,7 +142,12 @@ int main()
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
-		        	break;
+				for (int i = 0; i < m.Col; ++i)
+				{
+					free(m_alea2.Matrix());
+				}
+				free(m_alea2.Matrix);
+		        break;
 		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
 			    printf("Labyrinthe parfait (toutes les cases sont accessibles)");
 			    printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
@@ -141,9 +162,7 @@ int main()
 					break;
 				}
 			    Maze m_pile = MazePile(size1,size2);
-				printf("taille, entrée , sortie\n");
-				printf("%d,%d,%d,%d,%d,%d",m_pile.Lin, m_pile.Col , m_pile.In[0],m_pile.In[1], m_pile.Out[0],m_pile.Out[1]);
-			if(MazeValid(m_pile)){
+				if(MazeValid(m_pile)){
 			    path = way_search(m_pile);
 			    dis(m_pile, path);
 			    printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
@@ -161,7 +180,12 @@ int main()
 				{
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
-			}else{printf("labyrinthe non valide\n");}
+				}else{printf("labyrinthe non valide\n");}
+				for (int i = 0; i < m.Col; ++i)
+				{
+					free(m_pile.Matrix());
+				}
+				free(m_pile.Matrix);
 				break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 				break;
