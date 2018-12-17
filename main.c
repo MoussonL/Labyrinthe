@@ -163,7 +163,7 @@ int main()
 		        break;
 			case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
 				printf("Labyrinthe parfait (toutes les cases sont accessibles)");
-			  	printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+			  	printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = rand()%35 + 1; 
