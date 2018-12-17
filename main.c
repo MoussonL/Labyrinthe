@@ -47,8 +47,9 @@ int main()
 					printf("labyrinthe non valide\n");
 				}
 				//Libération mémoire
-				free(fic);
+				/*free(fic);
 				free(s);
+				printf("erggggeg\n");
 				for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m.Matrix[i]);
@@ -58,7 +59,7 @@ int main()
 				{
 					free(m_fic.Matrix[i]);
 				}
-				free(m_fic.Matrix);
+				free(m_fic.Matrix);*/
 		break;
 		case 2:	//labyrinthe aléatoire (positions de l'entrée/sortie n'importe où dans le labyrinthe)
 		
@@ -98,11 +99,11 @@ int main()
 				{
 				    printf("labyrinthe non valide\n");
 				}
-				for (int i = 0; i < m.Col-1; ++i)
+				/*for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_alea.Matrix[i]);
 				}
-				free(m_alea.Matrix);
+				free(m_alea.Matrix);*/
 				break;
 		case 3: //labyrinthe pseudo-aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
 	        	printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionées sur les bords su labyrinthe)\n");
@@ -138,11 +139,11 @@ int main()
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
-				for (int i = 0; i < m.Col-1; ++i)
+				/*for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_alea2.Matrix[i]);
 				}
-				free(m_alea2.Matrix);
+				free(m_alea2.Matrix);*/
 		        break;
 		case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
 			    printf("Labyrinthe parfait (toutes les cases sont accessibles)");
@@ -177,16 +178,16 @@ int main()
 					printf("valeur non reconnue : labyrinthe non sauvegardé\n");
 				}
 				}else{printf("labyrinthe non valide\n");}
-				for (int i = 0; i < m.Col-1; ++i)
+				/*for (int i = 0; i < m.Col-1; ++i)
 				{
 					free(m_pile.Matrix[i]);
 				}
-				free(m_pile.Matrix);
+				free(m_pile.Matrix);*/
 				break;
 		default: printf("vous n'avez pas entré une des valeurs demandées\n");
 				break;
 	}
-		free(fic_save);
+	//free(fic_save);
 }
 	return 0;
 }
