@@ -40,7 +40,8 @@ int main()
 				}
 				Maze m_fic = m;
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
-				{
+				{       
+					//calcule le temps d'éxécution
 					t1 = time(NULL);
          				if (t1 == (time_t)-1)
          				{
@@ -55,6 +56,7 @@ int main()
       			  		 	printf("erreur temps\n");
       			  		 }
 					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					 //affiche le résultat
 					 dis(m_fic,path);
 				}
 				else
@@ -91,6 +93,7 @@ int main()
 				}
 				Maze m_alea = MazeRand1(size1,size2);
 				if(MazeValid(m_alea)){
+					//calcule le temps d'exécution
 					t1 = time(NULL);
          				if (t1 == (time_t)-1)
          				{
@@ -105,6 +108,7 @@ int main()
       			  		 	printf("erreur temps\n");
       			  		 }
 					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					//affiche le résultat
 					dis(m_alea, path);
 					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 					scanf("%d",&decision);
@@ -148,6 +152,7 @@ int main()
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValid(m_alea2)){
+					//calcule le temps d'execution
 					t1 = time(NULL);
          				if (t1 == (time_t)-1)
          				{
@@ -162,6 +167,7 @@ int main()
       			  		 	printf("erreur temps\n");
       			  		 }
 					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					//affiche le résultat
 					dis(m_alea2,path);
 					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
 					scanf("%d",&decision);
@@ -203,6 +209,7 @@ int main()
 				  }
 			  	  Maze m_pile = MazePile(size1,size2);
 				if(MazeValid(m_pile)){
+					//calcule le temps d'execution
 			   		t1 = time(NULL);
          				if (t1 == (time_t)-1)
          				{
@@ -217,6 +224,7 @@ int main()
       			  		 	printf("erreur temps\n");
       			  		 }
 					 printf("%ld secondes pour trouver le chemin\n", t2-t1);
+					//affcihe le résultat
 			    		dis(m_pile, path);
 			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avecl'extension  .txt, 2 sinon\n");
 					scanf("%d",&decision);
