@@ -37,27 +37,26 @@ int main()
 					m = lectFic(fic);
 				}
 				Maze m_fic = m;
-				printf("\n%d\n",m_fic.In[0]);
 				if(m_fic.Lin!=1000&&(MazeValid(m_fic))==1)//si erreur ouverture fichier  == 1000 ou validité du fichier == 0
 				{
 						path = way_search(m_fic);
 						dis(m_fic,path);
-				
+				}
 				else
 				{
 					printf("labyrinthe non valide\n");
 				}
-				}
+				//Libération mémoire
 				free(fic);
 				free(s);
 				for (int i = 0; i < m.Col; ++i)
 				{
-					free(m.Matrix());
+					free(m.Matrix[i]);
 				}
 				free(m.Matrix);
 				for (int i = 0; i < m.Col; ++i)
 				{
-					free(m_fic.Matrix());
+					free(m_fic.Matrix[i]);
 				}
 				free(m_fic.Matrix);
 		break;
@@ -102,7 +101,7 @@ int main()
 				}
 				for (int i = 0; i < m.Col; ++i)
 				{
-					free(m_falea.Matrix());
+					free(m_alea.Matrix[i]);
 				}
 				free(m_alea.Matrix);
 				break;
@@ -121,8 +120,6 @@ int main()
 				default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
-				printf("taille, entrée , sortie\n");
-				printf("%d,%d,%d,%d,%d,%d",m_alea2.Lin, m_alea2.Col , m_alea2.In[0],m_alea2.In[1], m_alea2.Out[0],m_alea2.Out[1]);
 				if(MazeValid(m_alea2)){
 				path = way_search(m_alea2);
 				dis(m_alea2,path);
@@ -144,7 +141,7 @@ int main()
 				}else{printf("labyrinthe non valide\n");}
 				for (int i = 0; i < m.Col; ++i)
 				{
-					free(m_alea2.Matrix());
+					free(m_alea2.Matrix[i]);
 				}
 				free(m_alea2.Matrix);
 		        break;
@@ -183,7 +180,7 @@ int main()
 				}else{printf("labyrinthe non valide\n");}
 				for (int i = 0; i < m.Col; ++i)
 				{
-					free(m_pile.Matrix());
+					free(m_pile.Matrix[i]);
 				}
 				free(m_pile.Matrix);
 				break;
