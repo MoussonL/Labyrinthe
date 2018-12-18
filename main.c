@@ -40,7 +40,7 @@ int main()
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{       
 					//calcule le temps d'éxécution
-         			path = way_search(m_fic);
+         				path = way_search(m_fic);
 					 //affiche le résultat
 					 dis(m_fic,path);
 					 display_length_path(path);
@@ -124,7 +124,7 @@ int main()
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
-				default: break;
+					default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValid(m_alea2)){
