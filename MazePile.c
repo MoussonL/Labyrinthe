@@ -272,7 +272,7 @@ Maze MazePile(int size1, int size2){
 	
 	int L = ((maze.Lin)-1);
 	int C = ((maze.Col)-1);
-	int S = ((Tab_size)-1));
+	int S = ((Tab_size)-1);
 	int Pos_In;
 	int Pos_Out;
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
