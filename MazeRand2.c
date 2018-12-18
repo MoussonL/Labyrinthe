@@ -141,7 +141,7 @@ Maze MazeRand2(int size1,int size2)
 	
 	//Remplire le tableau Tab_pos par les positions Matrix[Lin-1][0],...,Matrix[Lin-1][Col-1]
 	for(i=0;i<maze.Col;i++){
-				p.X = maze.Lin-1;
+				p.X = ((maze.Lin)-1);
 				p.Y = i;
 				Tab_pos[index] = p;
 				index++;
@@ -183,7 +183,7 @@ Maze MazeRand2(int size1,int size2)
 	//Remplire le tableau Tab_pos par les positions Matrix[1][Col-1],...,Matrix[Lin-2][Col-1]
 	for(i=1;i<maze.Lin-1;i++){
 				p.X = i;
-				p.Y = maze.Col-1;
+				p.Y = ((maze.Col)-1);
 				Tab_pos[index]=p;
 				index++;
 		
@@ -192,9 +192,11 @@ Maze MazeRand2(int size1,int size2)
 				maze.Matrix[i][maze.Col-1] ^= (-1 ^ maze.Matrix[i][maze.Col-1]) & (1UL << 2);
 	}
 	
+	int L = ((maze.Lin)-1);
+	int C = ((maze.Col)-1);
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
-	
-	int Pos_In = rand()%Tab_size;
+	int S = ((Tab_size)-1));
+	int Pos_In = (rand()%(S));
 	int Pos_Out;
 	
 	//Affecter la valeur de Pos_In à In[2]
@@ -204,22 +206,22 @@ Maze MazeRand2(int size1,int size2)
 	//Génération d'une sortie aussi loin possible de l'entrée	
 	if(Tab_pos[Pos_In].X == 0){
 		do{
-			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].X != maze.Lin-1);
+			Pos_Out = (rand()%S);
+		}while(Tab_pos[Pos_Out].X != L);
 	}
-	else if (Tab_pos[Pos_In].X == maze.Lin-1){
+	else if (Tab_pos[Pos_In].X == L){
 		do{
-			Pos_Out = rand()%Tab_size;
+			Pos_Out = (rand()%S);
 		}while(Tab_pos[Pos_Out].X!= 0);
 	}
 	else if(Tab_pos[Pos_In].Y == 0){
 		do{
-			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].Y != maze.Col-1);
+			Pos_Out= (rand()%S);
+		}while(Tab_pos[Pos_Out].Y != C);
 	}
-	else if(Tab_pos[Pos_Out].Y == maze.Col-1){
+	else if(Tab_pos[Pos_Out].Y == C){
 		do{
-			Pos_Out= rand()%Tab_size;
+			Pos_Out= (rand()%S);
 		}while(Tab_pos[Pos_Out].Y != 0);
 	}
 	
