@@ -270,34 +270,40 @@ Maze MazePile(int size1, int size2){
 	
 	}
 	
+	int L = ((maze.Lin)-1);
+	int C = ((maze.Col)-1);
+	int S = ((Tab_size)-1));
+	int Pos_In;
+	int Pos_Out;
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
-	int Pos_In= rand()%Tab_size;
+	Pos_In= (rand()%S);
+	
 	//Affecter la valeur de l'entrée à In[2]
 	maze.In[0]=Tab_pos[Pos_In].X;
 	maze.In[1]=Tab_pos[Pos_In].Y;
 	
 
-	int Pos_Out;
+	
 
 	
 	//Génération d'une sortie aussi loin possible de l'entrée	
 	if(Tab_pos[Pos_In].X == 0){
 		do{
-			Pos_Out = rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].X != maze.Lin-1);
+			Pos_Out =(rand()%S);
+		}while(Tab_pos[Pos_Out].X != L);
 	}
-	else if (Tab_pos[Pos_In].X == maze.Lin-1){
+	else if (Tab_pos[Pos_In].X == L){
 		do{
-			Pos_Out = rand()%Tab_size;
+			Pos_Out = (rand()%S);
 		}while(Tab_pos[Pos_Out].X!= 0);
 	}
 	else if(Tab_pos[Pos_In].Y == 0){
 		do{
-			Pos_Out= rand()%Tab_size;
-		}while(Tab_pos[Pos_Out].Y != maze.Col-1);
-	}else if(Tab_pos[Pos_Out].Y == maze.Col-1){
+			Pos_Out= (rand()%S);
+		}while(Tab_pos[Pos_Out].Y != C);
+	}else if(Tab_pos[Pos_Out].Y == C){
 		do{
-			Pos_Out= rand()%Tab_size;
+			Pos_Out= (rand()%S);
 		}while(Tab_pos[Pos_Out].Y != 0);
 	}
 	//Affecter la valeur de la sortie à Out[2]
