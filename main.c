@@ -12,7 +12,7 @@ int main()
 	int stop=-1;
 	while(stop!=0)
 	{
-		printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4- Pour que toutes les cases soient accessibles depuis l'entrée(labyrinthe parfait)\n");
+		printf("Bonjour, choisissez une option de génération du labyrinthe:\n0- Pour arrêter le programme\n1- D'après un fichier \n2- De façon totalement aléatoire (entrée et sortie aléatoires)\n3- De façon aléatoire (entrée et sortie sur les cotés)\n4- Pour que toutes les cases soient accessibles depuis l'entrée (labyrinthe parfait)\n");
 		scanf("%d",&val);
 		Maze m;
 		Path path;
@@ -67,7 +67,7 @@ int main()
 			break;
 			case 2:	//labyrinthe aléatoire (positions de l'entrée/sortie n'importe où dans le labyrinthe
 		      	 	printf("le labyrinthe va être généré totalement aléatoirement\n");
-				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
+				printf("Choisissez une option: \n1-Taille Random\n2-Taille Personnalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = (rand()%(34))+ 2; 
@@ -81,7 +81,7 @@ int main()
 				Maze m_alea = MazeRand1(size1,size2);
 				if(MazeValid(m_alea)){
 					//calcule le temps d'exécution
-         			 	 path = way_search(m_alea);
+         			path = way_search(m_alea);
 					//affiche le résultat
 					dis(m_alea, path);
 					display_length_path(path);
@@ -113,8 +113,8 @@ int main()
 				free(m_alea.Matrix);*/
 			break;
 			case 3: //labyrinthe pseudo-aléatoire (positions de l'entrée/sortie sur les bords du labyrinthe)
-	        		printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionées sur les bords su labyrinthe)\n");
-				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalise\n");
+	        		printf("le labyrinthe va être généré pseudo-aléatoirement (l'entrée et la sortie seront positionnées sur les bords su labyrinthe)\n");
+				printf("Choisissez une option: \n1-Taille Random\n2-Taille Personnalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = (rand()%(34))+ 2;
@@ -161,7 +161,7 @@ int main()
 		        break;
 			case 4://labyrinthe parfait (pseudo-aléatoire) où toutes les cases sont accessibles.
 				printf("Labyrinthe parfait (toutes les cases sont accessibles)");
-			  	printf("Choisissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
+			  	printf("Choisissez une option: \n1-Taille Random\n2-Taille Personnalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
 					case 1:	size1 = (rand()%(34))+ 2;
