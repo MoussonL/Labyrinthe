@@ -28,7 +28,7 @@ Maze lectFic(char * fic)
 	{
 		for(int j=0;j<m.Col;j++)
 		{
-			fscanf(flot,"%hu",&m.Matrix[i][j]);
+			fscanf(flot,"%lu",&m.Matrix[i][j]);
 		}
 	}
 	fclose(flot);
@@ -50,7 +50,7 @@ void saveMaze(Maze m, char * fic_alea)
 	{
 		for (int j = 0; j < m.Col; ++j)
 		{
-			fprintf(flot,"%hu ",m.Matrix[i][j]);
+			fprintf(flot,"%lu ",m.Matrix[i][j]);
 		}
 		fprintf(flot,"\n");
 	}
