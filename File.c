@@ -50,7 +50,7 @@ void saveMaze(Maze m, char * fic_alea)
 	{
 		for (int j = 0; j < m.Col; ++j)
 		{
-			fprintf(flot,"%d ",m.Matrix[i][j]);
+			fprintf(flot,"%hu ",m.Matrix[i][j]);
 		}
 		fprintf(flot,"\n");
 	}
