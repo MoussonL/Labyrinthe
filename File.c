@@ -40,7 +40,7 @@ Maze lectFic(char * fic)
 void saveMaze(Maze m, char * fic_alea)
 {
 	FILE*flot;
-	if((flot = fopen(fic_alea,"w"))==NULL)
+	if((flot = fopen(fic_alea,"w+"))==NULL)
 	{
 		printf("erreur fichier ouverture\n");
 	}
