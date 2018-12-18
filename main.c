@@ -86,7 +86,7 @@ int main()
 					dis(m_alea, path);
 					display_length_path(path);
 
-					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt attention il écrasera tout fichier existant a ce nom, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
 					{
@@ -134,7 +134,7 @@ int main()
 					dis(m_alea2,path);
 					display_length_path(path);
 
-					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt, 2 sinon\n");
+					printf("si le labyrinthe vous convient tapez 1 pour le sauvegarder et entrez le nom de sauvegarde avec l'extension .txt attention il écrasera tout fichier a ce nom, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
 					{
@@ -180,7 +180,7 @@ int main()
 			    		dis(m_pile, path);
 			    		display_length_path(path);
 
-			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension  .txt, 2 sinon\n");
+			 	   	printf("si le labyrinthe vous convient tapez 1 pour sauvegarder et entrez le nom de sauvegarde avec l'extension  .txt attention il écrasera tout fichier a ce nom, 2 sinon\n");
 					scanf("%d",&decision);
 					if(decision==1)
 					{
