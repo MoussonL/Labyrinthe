@@ -195,7 +195,7 @@ Maze MazeRand2(int size1,int size2)
 	int L = ((maze.Lin)-1);
 	int C = ((maze.Col)-1);
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
-	int S = ((Tab_size)-1));
+	int S = ((Tab_size)-1);
 	int Pos_In = (rand()%(S));
 	int Pos_Out;
 	
