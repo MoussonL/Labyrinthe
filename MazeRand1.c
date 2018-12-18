@@ -43,7 +43,7 @@ Maze MazeRand1(int size1,int size2)
 					//Donner à val une valeur alétoire modulo 15 de sorte à avoir un entier sur 4 bits (val=(b3 b2 b1 b0) en base 2) pour la gestion des 4 murs de chaque case de la matrice
 					val = (rand()%(15));
 					//Affecter la valeur à Matrix[0][0]
-                    			maze.Matrix[i][j]=val;
+					maze.Matrix[i][j]=val;
 				}
 				else
 				{
@@ -108,9 +108,10 @@ Maze MazeRand1(int size1,int size2)
 
 	int Tab_size = (maze.Col + maze.Col + maze.Lin + maze.Lin)-4; //Dimension de Tab_pos
 	
+	
 	//Allocation d'un espace dynamique pour le tableau de position
 	Tab_pos = calloc( Tab_size , sizeof(Position)); //Ce tableau nous l'utiliserons pour mettre des murs sur ces positions là ainsi que pour le choix de l'entrée/sortie positionées sur les côtés du labyrinthe
-
+	
 	//Remplire le tableau Tab_pos par les positions Matrix[0][0],Matrix[0][1],...,Matrix[0][Col-1]
 	for(i=0;i<maze.Col;i++){
 				p.X = 0;
@@ -193,8 +194,8 @@ Maze MazeRand1(int size1,int size2)
 	}
 	
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
-	int Pos_InX= (rand()%((maze.Lin)-1));
-	int Pos_InY= (rand()%((maze.Col)-1));
+	int Pos_InX= (rand()%((maze.Lin)));
+	int Pos_InY= (rand()%((maze.Col)));
 	
 	//Affecter la valeur de l'entrée à In[2]
 	maze.In[0]=Pos_InX;
@@ -205,11 +206,11 @@ Maze MazeRand1(int size1,int size2)
 
 	//Chercher une position differente de l'entrée	
 	do{
-		Pos_OutX = (rand()%((maze.Lin)-1));
+		Pos_OutX = (rand()%((maze.Lin)));
 	}while(Pos_OutX == Pos_InX);
 	
 	do{
-		Pos_OutY = (rand()%((maze.Col)-1));
+		Pos_OutY = (rand()%((maze.Col)));
 	}while(Pos_OutY == Pos_InY);
 	
 	//Affecter la valeur de la sortie à Out[2]

@@ -66,6 +66,7 @@ Maze MazePile(int size1, int size2){
 	maze.Lin = size1;
 	maze.Col = size2;
 	
+
 	//Allocation d'un espace dynamique pour la matrice du labyrinthe
 	maze.Matrix = (unsigned short **) calloc(maze.Lin, sizeof(unsigned short *));
 	for (i=0;i<maze.Lin;i++)
@@ -97,10 +98,11 @@ Maze MazePile(int size1, int size2){
 		}
 	}
 	
+		
 
 	//Choisir aléatoirement une position de début 
-	int val= rand()%maze.Lin-1;
-	int val1= rand()%maze.Col-1;
+	int val= rand()%maze.Lin;
+	int val1= rand()%maze.Col;
 	//Initialiser le tableau temporaire stack[4] à la première position où on se positionne la première fois (pas de parent) 
 	stack[0]=val;
 	stack[1]=val1;
@@ -270,9 +272,10 @@ Maze MazePile(int size1, int size2){
 	
 	}
 	
+	
 	int L = ((maze.Lin)-1);
 	int C = ((maze.Col)-1);
-	int S = ((Tab_size)-1);
+	int S = ((Tab_size));
 	int Pos_In;
 	int Pos_Out;
 	//Choisir aléatoirement une position parmis celle du tableau Tab_pos
@@ -282,9 +285,6 @@ Maze MazePile(int size1, int size2){
 	maze.In[0]=Tab_pos[Pos_In].X;
 	maze.In[1]=Tab_pos[Pos_In].Y;
 	
-
-	
-
 	
 	//Génération d'une sortie aussi loin possible de l'entrée	
 	if(Tab_pos[Pos_In].X == 0){
@@ -301,11 +301,12 @@ Maze MazePile(int size1, int size2){
 		do{
 			Pos_Out= (rand()%S);
 		}while(Tab_pos[Pos_Out].Y != C);
-	}else if(Tab_pos[Pos_Out].Y == C){
+	}else if(Tab_pos[Pos_In].Y == C){
 		do{
 			Pos_Out= (rand()%S);
 		}while(Tab_pos[Pos_Out].Y != 0);
 	}
+	
 	//Affecter la valeur de la sortie à Out[2]
 	maze.Out[0] = Tab_pos[Pos_Out].X;
 	maze.Out[1] = Tab_pos[Pos_Out].Y;

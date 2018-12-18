@@ -40,7 +40,7 @@ int main()
 				if(m_fic.Lin!=0&&(MazeValid(m_fic))==1)//si erreur ouverture fichier 0 ou validité du fichier == 0
 				{       
 					//calcule le temps d'éxécution
-         				path = way_search(m_fic);
+         			path = way_search(m_fic);
 					 //affiche le résultat
 					 dis(m_fic,path);
 					 display_length_path(path);
@@ -70,8 +70,8 @@ int main()
 				printf("Chosissez une option: \n1-Taille Random\n2-Taille Personalisée\n");
 				scanf("%d",&choice);
 				switch(choice){
-					case 1:	size1 = (rand()%(33))+ 3; 
-						size2 = (rand()%(33))+ 3;
+					case 1:	size1 = (rand()%(34))+ 2; 
+						size2 = (rand()%(34))+ 2;
 					break;
 					case 2: printf("Donnez la taille (n x m) du labyrinthe, attention si m superieur à 35 l'affichage ne sera pas cohérent : \n");
 						scanf("%d",&size1);
@@ -124,7 +124,7 @@ int main()
 						scanf("%d",&size1);
 						scanf("%d",&size2);
 					break;
-					default: break;
+				default: break;
 				}
 				Maze m_alea2 = MazeRand2(size1,size2);
 				if(MazeValid(m_alea2)){
