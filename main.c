@@ -1,6 +1,6 @@
 #include "Maze.h"
 
-int main()
+int main(int argc, char*argv[])
 {
 	int val = 0;
 	int decision=0;
